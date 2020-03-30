@@ -21,6 +21,11 @@ class CreateVehiclesTable extends Migration
             $table->boolean('reshoot')->nullable();
             $table->tinyInteger('reshoot_count')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 
