@@ -22,5 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Vehicle Routes
-Route::post('vehicles', 'VehicleController@store');
+Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/create', 'VehicleController@create')->middleware('auth');
+
+// Client Routes
+Route::post('/clients', 'ClientController@store');
+Route::get('/clients/create', 'ClientController@create');
