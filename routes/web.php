@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Vehicle Routes
 Route::post('vehicles', 'VehicleController@store');
-Route::get('/vehicles/create', 'VehicleController@create');
+Route::get('/vehicles/create', 'VehicleController@create')->middleware('auth');
