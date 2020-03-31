@@ -23,9 +23,27 @@
                     </span>
                 @enderror
             </div>
-        </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="client_id" class="col-md-3 col-form-label text-md-right">Client's Account</label>
+            <div class="col-md-4">
+              <select name="client_id" class="form-control" id="client_id">
+
+                @foreach ($clients as $client)
+                  <option value="{{ $client->id }}">{{ $client->name }}</option>
+                @endforeach
+
+              </select>
+            </div>
+          </div>
   
-        <button class="btn btn-primary" type="submit">Submit</button>
+          <div class="row">
+            <div class="col-md-8 offset-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+
         </form>
       </div>
     </div>
