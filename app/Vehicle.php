@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Vehicle extends Model
 {
@@ -16,5 +17,15 @@ class Vehicle extends Model
     public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public static function today()
+    {
+        $tomorrow  = date('Y-m-d H:i:s', mktime(0, 0, 0, date("m")  , date("d")+1, date("Y")));
+        $yesterday  = date('Y-m-d H:i:s', mktime(0, 0, 0, date("m")  , date("d"), date("Y")));
+
+        $todaysOrders = DB::table('vehicles')->whereBetween('created_at', [$yesterday, $tomorrow])->get();
+
+        return $todaysOrders;
     }
 }
