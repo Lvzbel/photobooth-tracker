@@ -19,12 +19,12 @@ class Vehicle extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public static function today()
+    public function scopeTodaysVehicles($query)
     {
         $tomorrow  = date('Y-m-d H:i:s', mktime(0, 0, 0, date("m")  , date("d")+1, date("Y")));
         $yesterday  = date('Y-m-d H:i:s', mktime(0, 0, 0, date("m")  , date("d"), date("Y")));
 
-        $todaysOrders = DB::table('vehicles')->whereBetween('created_at', [$yesterday, $tomorrow])->get();
+        $todaysOrders = $query->whereBetween('created_at', [$yesterday, $tomorrow])->get();
 
         return $todaysOrders;
     }
