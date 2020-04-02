@@ -29,8 +29,10 @@
         </div>
     </div>
 
-    <div class="row justify-content-center mt-4">
-        <a class="btn btn-lg btn-primary" href="/vehicles/create">Add Vehicle</a>
-    </div>
+    @auth
+        <div class="row justify-content-center mt-4">
+            <a class="btn btn-lg btn-primary" href="/vehicles/create">Add Vehicle</a>
+        </div>
+    @endauth
 </div>
 @endsection
