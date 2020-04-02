@@ -30,6 +30,6 @@ class VehicleController extends Controller
         
         Vehicle::create($jointData);
 
-        return redirect(route('home'));
+        return redirect(route('home'))->with('message', 'Work order added.');
     }
 }
