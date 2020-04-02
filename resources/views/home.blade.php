@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+
     {{-- Success Alert --}}
     @if (session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -11,6 +12,8 @@
             </button>
         </div>  
     @endif
+
+    {{-- Today's Vehicles --}}
     <h1>Today's Vehicles</h1>
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -24,6 +27,10 @@
                 @endforelse
               </ul>
         </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <a class="btn btn-lg btn-primary" href="/vehicles/create">Add Vehicle</a>
     </div>
 </div>
 @endsection
