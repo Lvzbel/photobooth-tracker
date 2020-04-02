@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Todays Orders</h1>
+    <h1>Today's Vehicles</h1>
     <div class="row justify-content-center">
         <div class="col-md-5">
             <ul class="list-group">
@@ -11,7 +11,9 @@
                         <li class="list-group-item">{{ $work_order->work_order }}</li>
                     @endforeach
                 @else
-                    <h3>No orders for today</h3>
+                    <div class="alert alert-danger" role="alert">
+                        No vehicles entries yet.
+                    </div>
                 @endif
               </ul>
         </div>
