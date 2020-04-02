@@ -30,6 +30,6 @@ class VehicleController extends Controller
         
         Vehicle::create($jointData);
 
-        return redirect(route('welcome'));
+        return redirect(route('home'));
     }
 }
