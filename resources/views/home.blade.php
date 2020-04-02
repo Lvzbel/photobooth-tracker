@@ -6,9 +6,13 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
             <ul class="list-group">
-                @foreach ($work_orders as $work_order)
-                    <li class="list-group-item">{{ $work_order->work_order }}</li>
-                @endforeach
+                @if (empty($work_orders))
+                    @foreach ($work_orders as $work_order)
+                        <li class="list-group-item">{{ $work_order->work_order }}</li>
+                    @endforeach
+                @else
+                    <h3>No orders for today</h3>
+                @endif
               </ul>
         </div>
     </div>
