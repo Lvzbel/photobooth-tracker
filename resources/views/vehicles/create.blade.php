@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="containter">
+  <div class="container">
     <h1>Add a new vehicle</h1>
     
     <div class="row justify-content-center">
