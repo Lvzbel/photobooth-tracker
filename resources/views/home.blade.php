@@ -24,7 +24,7 @@
                         <div>
                             <button class="btn btn-secondary btn-sm">Edit</button>
                             {{-- Vue Component --}}
-                            <deletebutton></deletebutton>
+                            <deletebutton route="vehicles" item_id="{{ $work_order->id }}"></deletebutton>
                         </div>
                     </li>
                 @empty
