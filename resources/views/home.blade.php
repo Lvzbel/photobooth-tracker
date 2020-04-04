@@ -19,7 +19,13 @@
         <div class="col-md-5">
               <ul class="list-group">
                 @forelse ($work_orders as $work_order)
-                    <li class="list-group-item">{{ $work_order->work_order }}</li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>{{ $work_order->work_order }}</div>
+                        <div>
+                            <button class="btn btn-secondary btn-sm">Edit</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </div>
+                    </li>
                 @empty
                     <div class="alert alert-danger" role="alert">
                         No vehicles entries yet.
