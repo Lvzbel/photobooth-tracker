@@ -6,10 +6,6 @@
 export default {
   props: ["route", "item_id"],
 
-  mounted() {
-    console.log("Delete Button Mounted");
-  },
-
   methods: {
     onClick: function() {
       axios
