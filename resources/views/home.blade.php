@@ -23,7 +23,8 @@
                         <div>{{ $work_order->work_order }}</div>
                         <div>
                             <button class="btn btn-secondary btn-sm">Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            {{-- Vue Component --}}
+                            <deletebutton></deletebutton>
                         </div>
                     </li>
                 @empty
