@@ -32,4 +32,13 @@ class VehicleController extends Controller
 
         return redirect(route('home'))->with('message', 'Work order added.');
     }
+
+    public function delete(Request $request)
+    {
+        $vehicle = Vehicle::find($request->id);
+
+        $vehicle->delete();
+
+        return redirect(route('home'))->with('message', 'Work order has been deleted');
+    }
 }
