@@ -22,7 +22,7 @@
                     <li class="list-group-item d-flex justify-content-between">
                         <div>{{ $work_order->work_order }}</div>
                         <div>
-                            <button class="btn btn-secondary btn-sm">Edit</button>
+                            <a class="btn btn-secondary btn-sm" href="/vehicles/{{ $work_order->id }}/edit">Edit</a>
                             {{-- Vue Component --}}
                             <deletebutton route="vehicles" item_id="{{ $work_order->id }}"></deletebutton>
                         </div>
