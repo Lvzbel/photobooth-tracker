@@ -23,8 +23,6 @@
                         <div>{{ $work_order->work_order }}</div>
                         <div>
                             <a class="btn btn-secondary btn-sm" href="/vehicles/{{ $work_order->id }}/edit">Edit</a>
-                            {{-- Vue Component --}}
-                            <deletebutton route="vehicles" item_id="{{ $work_order->id }}"></deletebutton>
                         </div>
                     </li>
                 @empty
