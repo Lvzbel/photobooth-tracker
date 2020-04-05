@@ -33,6 +33,11 @@ class VehicleController extends Controller
         return redirect(route('home'))->with('message', 'Work order added.');
     }
 
+    public function edit(Vehicle $vehicle)
+    {
+        return view('vehicles.edit', compact('vehicle'));
+    }
+
     public function destroy(Vehicle $vehicle)
     {
         $vehicle->delete();
