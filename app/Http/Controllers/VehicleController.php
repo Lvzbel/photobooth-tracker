@@ -35,7 +35,22 @@ class VehicleController extends Controller
 
     public function edit(Vehicle $vehicle)
     {
-        return view('vehicles.edit', compact('vehicle'));
+        // Get list of current clients for form select input
+        $clients = Client::all();
+        
+        return view('vehicles.edit', compact('vehicle', 'clients'));
+    }
+
+    public function update(Vehicle $vehicle, Request $request)
+    {
+        $validatedData = $request->validate([
+            'work_order' => ['required', 'digits:7'],
+            'client_id' => ['required', 'digits:1']
+        ]);
+
+        $vehicle->update($validatedData);
+
+        return redirect(route('home'))->with('message', 'Work order has been updated');
     }
 
     public function destroy(Vehicle $vehicle)
