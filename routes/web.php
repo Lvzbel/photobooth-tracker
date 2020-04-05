@@ -20,7 +20,7 @@ Auth::routes();
 // Vehicle Routes
 Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/create', 'VehicleController@create')->middleware('auth');
-Route::post('/vehicles/{vehicle}', 'VehicleController@delete');
+Route::post('/vehicles/{vehicle}', 'VehicleController@destroy');
 
 // Client Routes
 Route::post('/clients', 'ClientController@store');

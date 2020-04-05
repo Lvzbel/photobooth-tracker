@@ -33,7 +33,7 @@ class VehicleController extends Controller
         return redirect(route('home'))->with('message', 'Work order added.');
     }
 
-    public function delete(Vehicle $vehicle)
+    public function destroy(Vehicle $vehicle)
     {
         $vehicle->delete();
 
