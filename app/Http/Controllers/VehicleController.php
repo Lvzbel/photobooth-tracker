@@ -60,6 +60,8 @@ class VehicleController extends Controller
 
     public function destroy(Vehicle $vehicle)
     {
+        $this->authorize('update', $vehicle->user);
+        
         $vehicle->delete();
 
         return redirect(route('home'))->with('message', 'Work order has been deleted');
