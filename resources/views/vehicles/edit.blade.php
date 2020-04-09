@@ -51,7 +51,7 @@
 
               <div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/" class="btn btn-secondary">Cancel</a>
+                <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
               </div>
             </div>
           </div>
