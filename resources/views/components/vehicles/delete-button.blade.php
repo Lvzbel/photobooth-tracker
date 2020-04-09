@@ -1,3 +1,5 @@
+@can('update', $vehicle)
+
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
   Delete
 </button>
@@ -26,3 +28,5 @@
       </div>
     </div>
   </div>
+
+@endcan
