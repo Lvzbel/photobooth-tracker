@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Vehicle;
 use App\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class VehicleController extends Controller
 {
@@ -60,7 +61,7 @@ class VehicleController extends Controller
 
     public function destroy(Vehicle $vehicle)
     {
-        $this->authorize('update', $vehicle->user);
+        $this->authorize('update', $vehicle);
         
         $vehicle->delete();
 
