@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class VehicleController extends Controller
 {
+    public function show(Vehicle $vehicle)
+    {
+        return view('vehicles.show', compact('vehicle'));
+    }
+    
     public function create()
     {
         // Get list of current clients for form select input
