@@ -31,5 +31,11 @@
       </div>
     </div>
 
+    <div class="row flex justify-content-center mt-4">
+      <div class="col-9">
+        <x-vehicles.delete-button :vehicle="$vehicle"></x-vehicles.delete-button>
+      </div>
+    </div>
+
   </div>
 @endsection
