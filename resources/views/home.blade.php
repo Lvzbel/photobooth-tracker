@@ -24,9 +24,7 @@
                             <h5 class="font-weight-bold m-0"><a href="/vehicles/{{ $work_order->id }}">{{ $work_order->work_order }}</a></h5>
                         </div>
                         <div>
-                            @can('update', $work_order)
-                            <a class="btn btn-secondary btn-sm" href="/vehicles/{{ $work_order->id }}/edit">Edit</a>
-                            @endcan
+                            <x-vehicles.edit-button :vehicle="$work_order"></x-vehicles.edit-button>
                         </div>
                     </li>
                 @empty
