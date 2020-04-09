@@ -21,7 +21,7 @@
                 @forelse ($work_orders as $work_order)
                     <li class="list-group-item d-flex justify-content-between">
                         <div class="d-flex align-items-center">
-                            <h5 class="font-weight-bold m-0">{{ $work_order->work_order }}</h5>
+                            <h5 class="font-weight-bold m-0"><a href="/vehicles/{{ $work_order->id }}">{{ $work_order->work_order }}</a></h5>
                         </div>
                         <div>
                             @can('update', $work_order)
