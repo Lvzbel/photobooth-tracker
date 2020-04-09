@@ -34,6 +34,8 @@
     <div class="row flex justify-content-center mt-4">
       <div class="col-9">
         <x-vehicles.delete-button :vehicle="$vehicle"></x-vehicles.delete-button>
+
+        <x-vehicles.edit-button :vehicle="$vehicle" :small="false"></x-vehicles.edit-button>
       </div>
     </div>
 

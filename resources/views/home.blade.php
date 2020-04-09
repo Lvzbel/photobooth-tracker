@@ -24,7 +24,7 @@
                             <h5 class="font-weight-bold m-0"><a href="/vehicles/{{ $work_order->id }}">{{ $work_order->work_order }}</a></h5>
                         </div>
                         <div>
-                            <x-vehicles.edit-button :vehicle="$work_order"></x-vehicles.edit-button>
+                            <x-vehicles.edit-button :vehicle="$work_order" :small="true"></x-vehicles.edit-button>
                         </div>
                     </li>
                 @empty
