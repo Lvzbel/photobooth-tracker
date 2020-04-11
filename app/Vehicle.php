@@ -33,7 +33,6 @@ class Vehicle extends Model
         // Returns a list of vehicles with the same work_order except for the one with called with sorted by most recent
         $listVehicles = $query->where('work_order', $vehicleWorkOrder)
             ->get()
-            ->except([$vehicleId])
             ->sortDesc();
 
         return $listVehicles;
