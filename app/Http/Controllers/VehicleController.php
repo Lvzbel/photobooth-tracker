@@ -12,7 +12,9 @@ class VehicleController extends Controller
 {
     public function show(Vehicle $vehicle)
     {
-        return view('vehicles.show', compact('vehicle'));
+        $reshoots = Vehicle::reshoots($vehicle->id, $vehicle->work_order);
+        
+        return view('vehicles.show', compact('vehicle', 'reshoots'));
     }
     
     public function create()
