@@ -28,7 +28,7 @@ class Vehicle extends Model
         return $todaysOrders;
     }
 
-    public function scopeReshoots($query, $vehicleId, $vehicleWorkOrder)
+    public function scopeReshoots($query, $vehicleWorkOrder)
     {
         // Returns a list of vehicles with the same work_order except for the one with called with sorted by most recent
         $listVehicles = $query->where('work_order', $vehicleWorkOrder)
