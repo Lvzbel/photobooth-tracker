@@ -41,7 +41,7 @@
 
     <div class="row flex justify-content-center mt-5">
       <div class="col-9">
-        <x-vehicles.reshoot-list :vehicles='$reshoots'></x-vehicles.reshoot-list>
+        <x-vehicles.reshoot-list :vehicles='$reshoots' :current="$vehicle->id"></x-vehicles.reshoot-list>
       </div>
     </div>
 
