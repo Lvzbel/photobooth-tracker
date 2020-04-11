@@ -16,7 +16,7 @@
           <th scope="row">{{ $key+1 }}</th>
           <td><a href="/vehicles/{{ $vehicle->id }}">{{ $vehicle->work_order}}</a></td>
           <td>{{ $vehicle->user->name }}</td>
-          <td>{{ $vehicle->created_at->format('F d, Y')}}</td>
+          <td>{{ $vehicle->created_at->format('m/d/y')}}</td>
         </tr>
       @endforeach
     </tbody>
