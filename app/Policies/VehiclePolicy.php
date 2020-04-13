@@ -19,6 +19,6 @@ class VehiclePolicy
      */
     public function update(User $user, Vehicle $vehicle)
     {
-        return $vehicle->user->is($user);
+        return $vehicle->user->is($user) or auth()->user()->hasRole('admin');
     }
 }
