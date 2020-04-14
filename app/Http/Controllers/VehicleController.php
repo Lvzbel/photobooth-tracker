@@ -72,9 +72,11 @@ class VehicleController extends Controller
 
     public function date(Request $request)
     {
-        $start = $request->start;
-        $end = $request->end;
+        $validatedData = $request->validate([
+            'start' => ['required', 'date'],
+            'end' => ['required', 'date']
+        ]);
 
-        return Vehicle::byDate($start, $end);
+        return Vehicle::byDate($validatedData['start'], $validatedData['end']);
     }
 }
