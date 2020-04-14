@@ -19,6 +19,7 @@ Auth::routes();
 
 // Vehicle Routes
 Route::get('/vehicles/create', 'VehicleController@create')->middleware('auth');
+Route::get('/vehicles/date', 'VehicleController@date');
 Route::get('/vehicles/{vehicle}', 'VehicleController@show');
 Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('auth');
