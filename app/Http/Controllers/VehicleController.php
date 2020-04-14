@@ -69,4 +69,12 @@ class VehicleController extends Controller
 
         return redirect(route('home'))->with('message', 'Work order has been deleted');
     }
+
+    public function date(Request $request)
+    {
+        $start = $request->start;
+        $end = $request->end;
+
+        return Vehicle::byDate($start, $end);
+    }
 }

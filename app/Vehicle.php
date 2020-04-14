@@ -37,4 +37,11 @@ class Vehicle extends Model
 
         return $listVehicles;
     }
+
+    public function scopeByDate($query, $start, $end)
+    {
+        // Receives dates in this format: 2020-04-14 Y-m-d
+
+        return $query->whereBetween('created_at', [date('Y-m-d H:i:s', strtotime($start)), date('Y-m-d H:i:s', strtotime($end))])->get();
+    }
 }
