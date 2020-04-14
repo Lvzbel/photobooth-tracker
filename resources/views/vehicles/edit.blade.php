@@ -44,10 +44,9 @@
           </div>
   
           <div class="row">
-            <div class="col-md-8 offset-3 d-flex justify-content-between">
+            <div class="col-md-8 offset-3 d-flex justify-content-end">
 
-              {{-- Activates Delete Modal --}}
-              <x-vehicles.delete-button :vehicle="$vehicle"></x-vehicles.delete-button>
+
 
               <div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -57,6 +56,12 @@
           </div>
 
         </form>
+        <div class="row">
+          <div class="col-md-8 offset-3 d-flex justify-content-start">
+              {{-- Activates Delete Modal --}}
+              <x-vehicles.delete-button :vehicle="$vehicle"></x-vehicles.delete-button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
