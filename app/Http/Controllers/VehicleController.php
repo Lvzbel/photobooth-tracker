@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Gate;
 
 class VehicleController extends Controller
 {
+    public function index()
+    {
+        return view('vehicles.index');
+    }
+    
     public function show(Vehicle $vehicle)
     {
         $reshoots = Vehicle::reshoots($vehicle->work_order);

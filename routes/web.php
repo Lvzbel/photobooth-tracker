@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 // Vehicle Routes
+Route::get('/vehicles', 'VehicleController@index');
 Route::get('/vehicles/create', 'VehicleController@create')->middleware('auth');
 Route::get('/vehicles/date', 'VehicleController@date');
 Route::get('/vehicles/{vehicle}', 'VehicleController@show');
