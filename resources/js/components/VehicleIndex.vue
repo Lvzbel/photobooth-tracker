@@ -48,6 +48,16 @@ export default {
                 `http://photobooth-tracker.test/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
             )
             .then(response => (this.filteredVehicles = response.data));
+    },
+    watch: {
+        range() {
+            this.onChange();
+        }
+    },
+    methods: {
+        onChange() {
+            console.log("Calendar Activated");
+        }
     }
 };
 </script>
