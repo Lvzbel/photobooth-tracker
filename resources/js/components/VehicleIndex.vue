@@ -39,7 +39,10 @@ export default {
             return moment(this.range.start).format("YYYY-MM-DD");
         },
         formatedEndDate() {
-            return moment(this.range.end).format("YYYY-MM-DD");
+            // In end date we compensate by adding one extra day to get the correct date
+            return moment(this.range.end)
+                .add(1, "days")
+                .format("YYYY-MM-DD");
         }
     },
     mounted: function() {
