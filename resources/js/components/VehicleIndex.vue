@@ -46,11 +46,7 @@ export default {
         }
     },
     mounted: function() {
-        axios
-            .get(
-                `http://photobooth-tracker.test/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
-            )
-            .then(response => (this.filteredVehicles = response.data));
+        this.getRequest();
     },
     watch: {
         range() {
@@ -58,12 +54,15 @@ export default {
         }
     },
     methods: {
-        onChange() {
+        getRequest() {
             axios
                 .get(
                     `http://photobooth-tracker.test/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
                 )
                 .then(response => (this.filteredVehicles = response.data));
+        },
+        onChange() {
+            this.getRequest();
         }
     }
 };
