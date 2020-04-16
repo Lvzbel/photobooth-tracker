@@ -1,14 +1,24 @@
 <template>
   <div>
     <h4>List of Vehicles</h4>
-    <ul>
-      <li v-for="vehicle in filteredVehicles" v-bind:key="vehicle.id" v-text="vehicle.work_order"></li>
+    <ul class="list-group">
+      <VehicleItem
+        class="list-group-item"
+        v-for="vehicle in filteredVehicles"
+        v-bind:key="vehicle.id"
+        :vehicle="vehicle"
+      ></VehicleItem>
     </ul>
   </div>
 </template>
 
 <script>
+import VehicleItem from "./VehicleItem";
+
 export default {
+  components: {
+    VehicleItem
+  },
   data: function() {
     return {
       filteredVehicles: []
