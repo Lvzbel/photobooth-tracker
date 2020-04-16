@@ -10,14 +10,16 @@
             />
         </div>
 
-        <ul class="list-group">
-            <VehicleItem
-                class="list-group-item"
-                v-for="vehicle in filteredVehicles"
-                v-bind:key="vehicle.id"
-                :vehicle="vehicle"
-            ></VehicleItem>
-        </ul>
+        <div class="row d-flex justify-content-center">
+            <ul class="p-0 list-group col-11 col-md-5">
+                <VehicleItem
+                    class="list-group-item"
+                    v-for="vehicle in filteredVehicles"
+                    v-bind:key="vehicle.id"
+                    :vehicle="vehicle"
+                ></VehicleItem>
+            </ul>
+        </div>
     </div>
 </template>
 
