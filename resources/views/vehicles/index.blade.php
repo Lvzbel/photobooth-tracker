@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<vehicleindex></vehicleindex>
+<div class="container">
+  <vehicleindex></vehicleindex>
+</div>
 @endsection
