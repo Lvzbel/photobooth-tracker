@@ -72,6 +72,15 @@
             </div>
         </nav>
 
+        <nav>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-md-6 py-3">
+                        <searchbar></searchbar>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <main class="py-4">
             @yield('content')
         </main>
