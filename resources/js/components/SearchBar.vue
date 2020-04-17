@@ -67,7 +67,7 @@ export default {
 }
 .results {
   position: absolute;
-  width: 100%;
+  width: 95%;
   z-index: 50;
 }
 </style>
