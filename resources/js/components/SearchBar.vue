@@ -68,6 +68,6 @@ export default {
 .results {
   position: absolute;
   width: 100%;
-  z-index: 1;
+  z-index: 50;
 }
 </style>
