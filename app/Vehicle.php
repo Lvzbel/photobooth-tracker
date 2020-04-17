@@ -44,4 +44,9 @@ class Vehicle extends Model
 
         return $query->whereBetween('created_at', [date('Y-m-d H:i:s', strtotime($start)), date('Y-m-d H:i:s', strtotime($end))])->get();
     }
+
+    public function scopeSearch($query, $work_order)
+    {
+        return $query->where('work_order', 'LIKE', "%{$work_order}%")->get();
+    }
 }
