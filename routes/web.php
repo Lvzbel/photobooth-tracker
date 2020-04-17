@@ -31,3 +31,6 @@ Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy');
 // Client Routes
 Route::post('/clients', 'ClientController@store');
 Route::get('/clients/create', 'ClientController@create');
+
+// Admin Routes
+Route::get('/admin', 'AdminController@index');
