@@ -14,7 +14,7 @@
         aria-label="Search work order"
       />
     </div>
-    <ul v-show="results">
+    <ul class="results p-0" v-show="results">
       <VehicleItem
         class="list-group-item"
         v-for="vehicle in results"
@@ -61,5 +61,13 @@ export default {
 };
 </script>
 
-<style>
+<style scope>
+.input-group {
+  position: relative;
+}
+.results {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
 </style>
