@@ -22,6 +22,7 @@ window.moment = require("moment");
 
 // Vue.component("deletebutton", require("./components/DeleteButton.vue").default);
 Vue.component("vehicleindex", require("./components/VehicleIndex.vue").default);
+Vue.component("searchbar", require("./components/SearchBar.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
