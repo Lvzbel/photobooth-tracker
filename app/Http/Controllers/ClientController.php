@@ -27,4 +27,9 @@ class ClientController extends Controller
 
         return redirect(route('welcome'));
     }
+
+    public function all()
+    {
+        return Client::all();
+    }
 }
