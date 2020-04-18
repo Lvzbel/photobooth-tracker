@@ -10,8 +10,28 @@
 
 <script>
 export default {
-  props: ["orders"],
+  props: ["orders", "clients"],
+  data: function() {
+    return {
+      clientsOrders: []
+    };
+  },
+  methods: {
+    clientTotals() {
+      let array = [];
+      this.clients.forEach(client => {
+        const theClient = new Object();
+        theClient.name = client.name;
+        theClient.count = 0;
+        array.push(theClient);
+      });
 
+      this.clientsOrders = array;
+    }
+  },
+  mounted: function() {
+    this.clientTotals();
+  },
   computed: {
     count() {
       return this.orders.length;
