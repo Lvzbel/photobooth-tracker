@@ -13,21 +13,7 @@
 
 <script>
 export default {
-  data: function() {
-    return {
-      clients: []
-    };
-  },
-  methods: {
-    getClients() {
-      axios
-        .get("/clients/all")
-        .then(response => (this.clients = response.data));
-    }
-  },
-  mounted: function() {
-    this.getClients();
-  }
+  props: ["clients"]
 };
 </script>
 
