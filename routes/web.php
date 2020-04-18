@@ -22,6 +22,7 @@ Route::get('/vehicles', 'VehicleController@index');
 Route::get('/vehicles/create', 'VehicleController@create')->middleware('auth');
 Route::get('/vehicles/date', 'VehicleController@date');
 Route::get('/vehicles/search', 'VehicleController@search');
+Route::get('/vehicles/today', 'VehicleController@today');
 Route::get('/vehicles/{vehicle}', 'VehicleController@show');
 Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('auth');
