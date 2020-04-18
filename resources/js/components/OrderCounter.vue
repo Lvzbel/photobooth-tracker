@@ -5,6 +5,12 @@
         <span id="counter-display" v-text="count">Primary</span>
       </div>
     </div>
+    <ul>
+      <li v-for="counter in clientsOrders" :key="counter.name">
+        <div v-text="counter.name"></div>
+        <div v-text="counter.count"></div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -22,11 +28,18 @@ export default {
       this.clients.forEach(client => {
         const theClient = new Object();
         theClient.name = client.name;
-        theClient.count = 0;
+        theClient.count = this.clientOrderCounter(client.id);
         array.push(theClient);
       });
 
       this.clientsOrders = array;
+    },
+    clientOrderCounter(id) {
+      let orderCounter = 0;
+      this.orders.forEach(order => {
+        if (id === order.client_id) orderCounter += 1;
+      });
+      return orderCounter;
     }
   },
   mounted: function() {
