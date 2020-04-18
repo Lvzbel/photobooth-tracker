@@ -10,6 +10,7 @@
         </div>
         <div class="col col-lg-6">
           <h3>Current Clients</h3>
+          <clientslist></clientslist>
         </div>
       </div>
       <div class="row my-4 d-flex justify-content-center">
