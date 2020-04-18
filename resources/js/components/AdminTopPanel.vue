@@ -2,11 +2,26 @@
   <div class="row my-4 d-flex justify-content-center">
     <div class="col col-lg-6">
       <h3>Number of Orders Today</h3>
-      <ordercounter :orders="orders"></ordercounter>
+
+      <ordercounter v-if="ordersLoaded" :orders="orders"></ordercounter>
+
+      <div v-else class="spinner d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </div>
+
     <div class="col col-lg-6">
       <h3>Current Clients</h3>
-      <clientslist :clients="clients"></clientslist>
+
+      <clientslist v-if="clientsLoaded" :clients="clients"></clientslist>
+
+      <div v-else class="spinner d-flex justify-content-center align-items-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -23,20 +38,24 @@ export default {
   data: function() {
     return {
       orders: [],
-      clients: null
+      ordersLoaded: false,
+      clients: null,
+      clientsLoaded: false
     };
   },
   methods: {
     getOrders() {
-      axios
-        .get("/vehicles/today")
-        .then(response => (this.orders = response.data));
+      axios.get("/vehicles/today").then(response => {
+        this.orders = response.data;
+        this.ordersLoaded = true;
+      });
     },
 
     getClients() {
-      axios
-        .get("/clients/all")
-        .then(response => (this.clients = response.data));
+      axios.get("/clients/all").then(response => {
+        this.clients = response.data;
+        this.clientsLoaded = true;
+      });
     }
   },
   mounted: function() {
@@ -46,5 +65,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.spinner {
+  height: 20rem;
+  width: 100%;
+}
+.spinner-border {
+  height: 4rem;
+  width: 4rem;
+}
 </style>
