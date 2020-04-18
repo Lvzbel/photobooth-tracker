@@ -25,6 +25,10 @@ Vue.component("vehicleindex", require("./components/VehicleIndex.vue").default);
 Vue.component("searchbar", require("./components/SearchBar.vue").default);
 Vue.component("ordercounter", require("./components/OrderCounter.vue").default);
 Vue.component("clientslist", require("./components/ClientsList.vue").default);
+Vue.component(
+    "admintoppanel",
+    require("./components/AdminTopPanel.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
