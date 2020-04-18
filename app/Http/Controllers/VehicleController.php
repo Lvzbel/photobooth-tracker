@@ -85,12 +85,18 @@ class VehicleController extends Controller
         return Vehicle::byDate($validatedData['start'], $validatedData['end']);
     }
 
-    public function search (Request $request)
+    public function search(Request $request)
     {
         $validatedData = $request->validate([
             'search' => ['required', 'string']
         ]);
 
         return Vehicle::search($validatedData['search']);
+    }
+
+    public function today()
+    {
+        return Vehicle::todaysVehicles();
+
     }
 }
