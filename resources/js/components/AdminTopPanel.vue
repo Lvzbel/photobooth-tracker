@@ -3,7 +3,7 @@
     <div class="col col-lg-6">
       <h3>Number of Orders Today</h3>
 
-      <ordercounter v-if="ordersLoaded" :orders="orders"></ordercounter>
+      <ordercounter v-if="ordersLoaded && clientsLoaded" :orders="orders" :clients="clients"></ordercounter>
 
       <div v-else class="spinner d-flex justify-content-center align-items-center">
         <div class="spinner-border text-primary" role="status">
@@ -40,7 +40,8 @@ export default {
       orders: [],
       ordersLoaded: false,
       clients: null,
-      clientsLoaded: false
+      clientsLoaded: false,
+      clientOrders: []
     };
   },
   methods: {
