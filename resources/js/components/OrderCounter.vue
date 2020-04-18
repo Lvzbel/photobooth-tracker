@@ -10,21 +10,8 @@
 
 <script>
 export default {
-  data: function() {
-    return {
-      orders: []
-    };
-  },
-  methods: {
-    getOrders() {
-      axios
-        .get("/vehicles/today")
-        .then(response => (this.orders = response.data));
-    }
-  },
-  mounted: function() {
-    this.getOrders();
-  },
+  props: ["orders"],
+
   computed: {
     count() {
       return this.orders.length;
