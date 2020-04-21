@@ -12,9 +12,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        return view('admin.panel');
+        return view('admin.panel', compact('user'));
     }
 
     /**
