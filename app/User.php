@@ -43,4 +43,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Vehicle::class);
     }
+
+    public function scopeUsersInfo($query)
+    {
+        // Gets all users
+        $users = $query->get();
+        // Attaches role to every user
+        foreach($users as $user) {
+            $role = $user->roles;
+            $roleName =$role[0]->name;
+            $user->role = $roleName;
+        }
+        return $users;
+    }
 }
