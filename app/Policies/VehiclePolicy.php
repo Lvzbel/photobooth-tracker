@@ -19,7 +19,7 @@ class VehiclePolicy
      */
     public function update(User $user, Vehicle $vehicle)
     {
-        return $vehicle->user->is($user) or auth()->user()->hasRole('admin');
+        return $vehicle->user->is($user) or auth()->user()->hasRole(['admin', 'manager']);
     }
 
     public function create(User $user)
