@@ -5,9 +5,13 @@
         <span id="counter-display" v-text="count">Primary</span>
       </div>
     </div>
-    <ul class="list-group">
-      <li v-for="counter in clientsOrders" :key="counter.name" class="d-flex">
-        <div v-text="counter.name"></div>
+    <ul class="list-group pt-4">
+      <li
+        v-for="counter in clientsOrders"
+        :key="counter.name"
+        class="list-group-item list-group-item-primary d-flex justify-content-between"
+      >
+        <div>{{counter.name.toUpperCase()}} :</div>
         <div v-text="counter.count"></div>
       </li>
     </ul>
