@@ -3,9 +3,15 @@
     <ul class="list-group">
       <li v-for="user in users" class="list-group-item" :key="user.id">
         <div>
-          {{user.name}}
-          <span v-if="user.role" class="badge badge-secondary" v-text="user.role"></span>
+          User Name: {{user.name}}
+          <span
+            v-if="user.role"
+            class="badge badge-secondary"
+            v-text="user.role"
+          ></span>
         </div>
+
+        <div>User Email: {{user.email}}</div>
       </li>
     </ul>
   </div>
