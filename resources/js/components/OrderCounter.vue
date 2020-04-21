@@ -5,8 +5,8 @@
         <span id="counter-display" v-text="count">Primary</span>
       </div>
     </div>
-    <ul>
-      <li v-for="counter in clientsOrders" :key="counter.name">
+    <ul class="list-group">
+      <li v-for="counter in clientsOrders" :key="counter.name" class="d-flex">
         <div v-text="counter.name"></div>
         <div v-text="counter.count"></div>
       </li>
