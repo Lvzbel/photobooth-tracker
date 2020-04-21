@@ -36,3 +36,4 @@ Route::get('/clients/all', 'ClientController@all');
 
 // Admin Routes
 Route::get('/admin', 'AdminController@index');
+Route::get('/admin/all', 'AdminController@all');
