@@ -50,8 +50,8 @@ class User extends Authenticatable
         $users = $query->get();
         // Attaches role to every user
         foreach($users as $user) {
-            $role = $user->roles;
-            $roleName =$role[0]->name;
+            $role = $user->roles->first();
+            $roleName = $role ? $role->name : 'none';
             $user->role = $roleName;
         }
         return $users;
