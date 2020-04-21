@@ -9,7 +9,10 @@
         <div class="col">
           <h3>Roles List</h3>
           {{-- Vue Componet UserList --}}
+          @can('viewany', $user)
           <userlist></userlist>
+          @endcan
+          
         </div>
       </div>
     </div>
