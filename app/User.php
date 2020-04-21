@@ -51,7 +51,7 @@ class User extends Authenticatable
         // Attaches role to every user
         foreach($users as $user) {
             $role = $user->roles->first();
-            $roleName = $role ? $role->name : 'none';
+            $roleName = $role ? $role->name : null;
             $user->role = $roleName;
         }
         return $users;
