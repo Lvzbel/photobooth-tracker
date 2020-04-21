@@ -85,6 +85,6 @@ class AdminController extends Controller
 
     public function all()
     {
-        return User::all();
+        return User::usersInfo();
     }
 }
