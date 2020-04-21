@@ -83,8 +83,10 @@ class AdminController extends Controller
         //
     }
 
-    public function all()
+    public function all(User $user)
     {
+        $this->authorize('viewany', $user);
+
         return User::usersInfo();
     }
 }
