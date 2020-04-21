@@ -24,6 +24,7 @@ class VehicleController extends Controller
     
     public function create()
     {
+        $this->authorize('create', Vehicle::class);
         // Get list of current clients for form select input
         $clients = Client::all();
         
@@ -32,6 +33,8 @@ class VehicleController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create', Vehicle::class);
+        
         $validatedData = request()->validate([
             'work_order' => ['required', 'digits:7'],
             'client_id' => ['required', 'digits:1']
