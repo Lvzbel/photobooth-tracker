@@ -21,4 +21,9 @@ class VehiclePolicy
     {
         return $vehicle->user->is($user) or auth()->user()->hasRole('admin');
     }
+
+    public function create(User $user)
+    {
+        return $user->hasRole(['admin', 'manager', 'photographer']);
+    }
 }
