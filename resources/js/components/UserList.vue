@@ -1,17 +1,29 @@
 <template>
   <div>
     <ul class="list-group">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li v-for="user in users" class="list-group-item" :key="user.id">
+        <div>{{user.name}}</div>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: function() {
+    return {
+      users: []
+    };
+  },
+  methods: {
+    getUsers() {
+      axios.get("/admin/all").then(response => (this.users = response.data));
+    }
+  },
+  mounted: function() {
+    this.getUsers();
+  }
+};
 </script>
 
 <style>
