@@ -36,6 +36,7 @@ Route::get('/clients/create', 'ClientController@create');
 Route::get('/clients/all', 'ClientController@all');
 Route::get('/clients/{client}/edit', 'ClientController@edit');
 Route::patch('/clients/{client}', 'ClientController@update');
+Route::delete('/clients/{client}', 'ClientController@destroy');
 
 // Admin Routes
 Route::get('/admin', 'AdminController@index');
