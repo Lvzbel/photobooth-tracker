@@ -30,13 +30,15 @@ Route::patch('/vehicles/{vehicle}', 'VehicleController@update')->middleware('aut
 Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy');
 
 // Client Routes
-Route::get('/clients', 'ClientController@index');
-Route::post('/clients', 'ClientController@store');
-Route::get('/clients/create', 'ClientController@create');
+Route::group(['middleware' => ['role:admin']], function() {
+  Route::get('/clients', 'ClientController@index');
+  Route::post('/clients', 'ClientController@store');
+  Route::get('/clients/create', 'ClientController@create');
+  Route::get('/clients/{client}/edit', 'ClientController@edit');
+  Route::patch('/clients/{client}', 'ClientController@update');
+  Route::delete('/clients/{client}', 'ClientController@destroy');
+});
 Route::get('/clients/all', 'ClientController@all');
-Route::get('/clients/{client}/edit', 'ClientController@edit');
-Route::patch('/clients/{client}', 'ClientController@update');
-Route::delete('/clients/{client}', 'ClientController@destroy');
 
 // Admin Routes
 Route::get('/admin', 'AdminController@index');
