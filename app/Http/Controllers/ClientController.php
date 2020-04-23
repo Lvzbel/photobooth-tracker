@@ -11,6 +11,13 @@ class ClientController extends Controller
     {
         return $this->middleware('auth');
     }
+
+    public function index(Client $client)
+    {
+        $clients = $client::all();
+
+        return view('client.index', compact('clients'));
+    }
     
     public function create()
     {
