@@ -35,6 +35,22 @@ class ClientController extends Controller
         return redirect(route('welcome'));
     }
 
+    public function edit(Client $client)
+    {
+        return view('vehicles.edit', compact('client'));
+    }
+
+    public function update(Client $client, Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => ['required', 'string']
+        ]);
+
+        $client->update($validatedData);
+
+        return redirect('/clients')->with('message', 'Client has been updated.');
+    }
+
     public function all()
     {
         return Client::all();
