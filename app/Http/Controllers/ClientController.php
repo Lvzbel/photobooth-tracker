@@ -51,6 +51,13 @@ class ClientController extends Controller
         return redirect('/clients')->with('message', 'Client has been updated.');
     }
 
+    public function destroy(Client $client)
+    {
+        $client->delete();
+
+        return redirect('/clients')->with('message', 'Client has been deleted it');
+    }
+
     public function all()
     {
         return Client::all();
