@@ -10,7 +10,7 @@
             <div>{{$client->name}}</div>
             <div>
               <a class="btn btn-secondary" href="/clients/{{$client->id}}/edit">Edit</a>
-              <button class="btn btn-danger">Delete</button>
+              <x-clients.delete-button :client="$client"></x-clients.delete-button>
             </div>
           </li>
         @endforeach
