@@ -4,14 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+// use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
-    public function __construct()
-    {
-        return $this->middleware('auth');
-    }
-
     public function index(Client $client)
     {
         $clients = $client::all();
