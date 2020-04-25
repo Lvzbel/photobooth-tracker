@@ -66,4 +66,16 @@ class User extends Authenticatable
         // Return True is user has been granted succesfully
         return $user->hasRole($role);
     }
+
+    public function scopeStripRole($query, $user_id)
+    {
+        // Find User with ID
+        $user = $query->find($user_id);
+        // Get the User's Role
+        $user_current_role = $user->roles->first();
+        // Detach Role
+        $user->detachRole($user_current_role);
+        // Return's true if user doesn't have role
+        return !$user->hasRole($user_current_role);
+    }
 }
