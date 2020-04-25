@@ -59,7 +59,7 @@
 
             <div class="roles__form">
               <select v-model="pickedRole" @change="onChange($event)">
-                <option>Please select a role to grant</option>
+                <option value="default" selected>Please select a role to grant</option>
                 <option v-for="role in getGrantableRoles" :key="role">{{role}}</option>
               </select>
 
@@ -81,7 +81,7 @@ export default {
   props: ["role"],
   data: function() {
     return {
-      pickedRole: ""
+      pickedRole: "default"
     };
   },
   computed: {
