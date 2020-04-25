@@ -10,7 +10,7 @@
         <div class="col">
           <h3>Roles List</h3>
           {{-- Vue Componet UserList --}}
-          <userlist></userlist>
+          <userlist :loginrole="{{$role}}""></userlist>
         </div>
       </div>
       @endcan
