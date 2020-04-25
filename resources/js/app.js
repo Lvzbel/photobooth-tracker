@@ -30,6 +30,10 @@ Vue.component(
     require("./components/AdminTopPanel.vue").default
 );
 Vue.component("userlist", require("./components/UserList.vue").default);
+Vue.component(
+    "userrolesbutton",
+    require("./components/UserRolesButton.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
