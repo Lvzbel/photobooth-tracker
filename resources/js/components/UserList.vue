@@ -9,16 +9,24 @@
             class="badge badge-secondary"
             v-text="user.role"
           ></span>
+          <div>User Email: {{user.email}}</div>
         </div>
 
-        <div>User Email: {{user.email}}</div>
+        <div>
+          <userrolesbutton></userrolesbutton>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import UserRolesButton from "./UserRolesButton";
+
 export default {
+  components: {
+    UserRolesButton
+  },
   data: function() {
     return {
       users: []
