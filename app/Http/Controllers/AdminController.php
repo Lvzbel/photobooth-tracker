@@ -14,7 +14,10 @@ class AdminController extends Controller
      */
     public function index(User $user)
     {
-        return view('admin.panel');
+        // Get login user role
+        $role = auth()->user()->roles->first()->name;
+        
+        return view('admin.panel', compact('role'));
     }
 
     /**
