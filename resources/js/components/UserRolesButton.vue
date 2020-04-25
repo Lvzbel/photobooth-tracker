@@ -27,6 +27,7 @@
           </div>
           <div class="modal-body">
             <div class="roles__container">
+              <h1>Role: {{role}}</h1>
               <div class="roles__role">
                 <h5 class="text-primary">Admin</h5>
                 <ul class="roles__list">
@@ -46,14 +47,23 @@
                   <li class="roles__item">Can edit all work orders</li>
                 </ul>
               </div>
+
+              <div class="roles__role">
+                <h5 class="text-primary">Photographer</h5>
+                <ul class="roles__list">
+                  <li class="roles__item">Create new Vehicles</li>
+                  <li class="roles__item">Edit their own Vehicles</li>
+                </ul>
+              </div>
             </div>
 
-            <div class="roles__role">
-              <h5 class="text-primary">Photographer</h5>
-              <ul class="roles__list">
-                <li class="roles__item">Create new Vehicles</li>
-                <li class="roles__item">Edit their own Vehicles</li>
-              </ul>
+            <div class="roles__form">
+              <select v-model="pickedRole" @change="onChange($event)">
+                <option>Please select a role to grant</option>
+                <option v-for="role in getGrantableRoles" :key="role">{{role}}</option>
+              </select>
+
+              <button class="btn btn-danger">Remove Role</button>
             </div>
           </div>
           <div class="modal-footer">
@@ -67,7 +77,31 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["role"],
+  data: function() {
+    return {
+      pickedRole: ""
+    };
+  },
+  computed: {
+    getGrantableRoles() {
+      switch (this.role) {
+        case "admin":
+          return ["admin", "manager", "photographer"];
+        case "manager":
+          return ["manager", "photographer"];
+        default:
+          return [];
+      }
+    }
+  },
+  methods: {
+    onChange(event) {
+      console.log(event.target.value);
+    }
+  }
+};
 </script>
 
 <style>

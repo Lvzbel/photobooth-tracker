@@ -13,7 +13,7 @@
         </div>
 
         <div>
-          <userrolesbutton></userrolesbutton>
+          <userrolesbutton :role="'admin'"></userrolesbutton>
         </div>
       </li>
     </ul>
