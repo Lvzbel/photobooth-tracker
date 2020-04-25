@@ -24,6 +24,7 @@
 import UserRolesButton from "./UserRolesButton";
 
 export default {
+  props: ["loginrole"],
   components: {
     UserRolesButton
   },
