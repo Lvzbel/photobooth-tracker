@@ -59,11 +59,11 @@ class User extends Authenticatable
 
     public function scopeGrantRole($query, $user_id, $role)
     {
-        // Search for User with ID
+        // Find User with ID
         $user = $query->find($user_id);
         // Grant user the role
         $user->attachRole($role);
         // Return True is user has been granted succesfully
-        return $user->hasRoles($role);
+        return $user->hasRole($role);
     }
 }
