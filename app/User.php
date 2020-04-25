@@ -44,6 +44,14 @@ class User extends Authenticatable
         return $this->hasMany(Vehicle::class);
     }
 
+    public function scopeGetUserRole($query, $user_id)
+    {   
+        // Find user by id
+        $user = $query->find($user_id);
+        // Return role as a string
+        return $user->roles->first()->name;
+    }
+
     public function scopeUsersInfo($query)
     {
         // Gets all users
