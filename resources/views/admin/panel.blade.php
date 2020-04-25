@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-      <h1 class="mb-4">Admin Panel</h1>
+    <h1 class="mb-4">Admin Panel: {{$role}}</h1>
+
       {{-- Vue Component AdminPanel --}}
         <admintoppanel></admintoppanel>
         @can('viewany', App\User::class)
@@ -10,7 +11,7 @@
         <div class="col">
           <h3>Roles List</h3>
           {{-- Vue Componet UserList --}}
-          <userlist :loginrole="{{$role}}""></userlist>
+          <userlist loginrole="{{$role}}"></userlist>
         </div>
       </div>
       @endcan
