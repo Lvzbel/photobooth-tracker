@@ -67,6 +67,8 @@ class User extends Authenticatable
 
     public function scopeGrantRole($query, $user_id, $role)
     {
+        // Requires user_id and role: 'admin', 'manager' or 'photographer'
+        
         // Find User with ID
         $user = $query->find($user_id);
         // Grant user the role
@@ -77,6 +79,8 @@ class User extends Authenticatable
 
     public function scopeStripRole($query, $user_id)
     {
+        // Takes user id and strips the current granted role
+        
         // Find User with ID
         $user = $query->find($user_id);
         // Get the User's Role
