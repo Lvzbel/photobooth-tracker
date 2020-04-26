@@ -92,4 +92,14 @@ class AdminController extends Controller
 
         return User::usersInfo();
     }
+
+    public function grantrole(Request $request)
+    {
+        $validatedData = $request->validate([
+            'user_id' => ['required', 'string'],
+            'role' => ['required', 'string']
+        ]);
+
+        return User::grantRole($validatedData['user_id'], $validatedData['role']);
+    }
 }

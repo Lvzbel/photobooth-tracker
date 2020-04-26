@@ -43,3 +43,5 @@ Route::get('/clients/all', 'ClientController@all');
 // Admin Routes
 Route::get('/admin', 'AdminController@index')->middleware(['role:admin|manager,photographer']);
 Route::get('/admin/all', 'AdminController@all')->middleware(['role:admin|manager,photographer']);
+// Admin API Calls
+Route::get('/admin/grantrole', 'AdminController@grantrole');
