@@ -41,5 +41,5 @@ Route::group(['middleware' => ['role:admin']], function() {
 Route::get('/clients/all', 'ClientController@all');
 
 // Admin Routes
-Route::get('/admin', 'AdminController@index');
-Route::get('/admin/all', 'AdminController@all');
+Route::get('/admin', 'AdminController@index')->middleware(['role:admin|manager,photographer']);
+Route::get('/admin/all', 'AdminController@all')->middleware(['role:admin|manager,photographer']);
