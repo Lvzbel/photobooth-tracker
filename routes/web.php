@@ -45,3 +45,4 @@ Route::get('/admin', 'AdminController@index')->middleware(['role:admin|manager,p
 Route::get('/admin/all', 'AdminController@all')->middleware(['role:admin|manager,photographer']);
 // Admin API Calls
 Route::get('/admin/grantrole', 'AdminController@grantrole');
+Route::get('/admin/removerole', 'AdminController@removerole');
