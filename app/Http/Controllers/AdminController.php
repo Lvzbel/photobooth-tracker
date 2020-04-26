@@ -102,4 +102,13 @@ class AdminController extends Controller
 
         return User::grantRole($validatedData['user_id'], $validatedData['role']);
     }
+
+    public function removerole(Request $request)
+    {
+        $validatedData = $request->validate([
+            'user_id' => ['required', 'string']
+        ]);
+
+        return User::stripRole($validatedData['user_id']);
+    }
 }
