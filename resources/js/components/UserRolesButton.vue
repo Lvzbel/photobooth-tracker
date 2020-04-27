@@ -1,108 +1,149 @@
 <template>
-  <div>
-    <!-- User Role Modal -->
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#userrolemodal"
-    >Edit Roles</button>
+    <div>
+        <!-- User Role Modal -->
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#userrolemodal"
+        >
+            Edit Roles
+        </button>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="userrolemodal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="userrolemodalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="userrolemodalLabel">Edit User Roles</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="roles__container">
-              <h1>Role: {{role}}</h1>
-              <div class="roles__role">
-                <h5 class="text-primary">Admin</h5>
-                <ul class="roles__list">
-                  <li class="roles__item">Can add/edit/remove Clients</li>
-                  <li
-                    class="roles__item"
-                  >Can grant the following roles: Admin, Manager or Photobooth</li>
-                  <li class="roles__item">Can delete Users</li>
-                  <li class="roles__item">Can edit all work orders</li>
-                </ul>
-              </div>
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="userrolemodal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="userrolemodalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userrolemodalLabel">
+                            Edit User Roles
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="roles__container">
+                            <h1>Role: {{ role }}</h1>
+                            <div class="roles__role">
+                                <h5 class="text-primary">Admin</h5>
+                                <ul class="roles__list">
+                                    <li class="roles__item">
+                                        Can add/edit/remove Clients
+                                    </li>
+                                    <li class="roles__item">
+                                        Can grant the following roles: Admin,
+                                        Manager or Photobooth
+                                    </li>
+                                    <li class="roles__item">
+                                        Can delete Users
+                                    </li>
+                                    <li class="roles__item">
+                                        Can edit all work orders
+                                    </li>
+                                </ul>
+                            </div>
 
-              <div class="roles__role">
-                <h5 class="text-primary">Manager</h5>
-                <ul class="roles__list">
-                  <li class="roles__item">Can grant the following roles: Manager or Photographer</li>
-                  <li class="roles__item">Can edit all work orders</li>
-                </ul>
-              </div>
+                            <div class="roles__role">
+                                <h5 class="text-primary">Manager</h5>
+                                <ul class="roles__list">
+                                    <li class="roles__item">
+                                        Can grant the following roles: Manager
+                                        or Photographer
+                                    </li>
+                                    <li class="roles__item">
+                                        Can edit all work orders
+                                    </li>
+                                </ul>
+                            </div>
 
-              <div class="roles__role">
-                <h5 class="text-primary">Photographer</h5>
-                <ul class="roles__list">
-                  <li class="roles__item">Create new Vehicles</li>
-                  <li class="roles__item">Edit their own Vehicles</li>
-                </ul>
-              </div>
+                            <div class="roles__role">
+                                <h5 class="text-primary">Photographer</h5>
+                                <ul class="roles__list">
+                                    <li class="roles__item">
+                                        Create new Vehicles
+                                    </li>
+                                    <li class="roles__item">
+                                        Edit their own Vehicles
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="roles__form">
+                            <select
+                                v-model="pickedRole"
+                                @change="onChange($event)"
+                            >
+                                <option value="default" selected
+                                    >Please select a role to grant</option
+                                >
+                                <option
+                                    v-for="role in getGrantableRoles"
+                                    :key="role"
+                                    >{{ role }}</option
+                                >
+                            </select>
+
+                            <button class="btn btn-danger">Remove Role</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <div class="roles__form">
-              <select v-model="pickedRole" @change="onChange($event)">
-                <option value="default" selected>Please select a role to grant</option>
-                <option v-for="role in getGrantableRoles" :key="role">{{role}}</option>
-              </select>
-
-              <button class="btn btn-danger">Remove Role</button>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
-  props: ["role"],
-  data: function() {
-    return {
-      pickedRole: "default"
-    };
-  },
-  computed: {
-    getGrantableRoles() {
-      switch (this.role) {
-        case "admin":
-          return ["admin", "manager", "photographer"];
-        case "manager":
-          return ["manager", "photographer"];
-        default:
-          return [];
-      }
+    props: ["role", "userid"],
+    data: function() {
+        return {
+            pickedRole: "default"
+        };
+    },
+    computed: {
+        getGrantableRoles() {
+            switch (this.role) {
+                case "admin":
+                    return ["admin", "manager", "photographer"];
+                case "manager":
+                    return ["manager", "photographer"];
+                default:
+                    return [];
+            }
+        }
+    },
+    methods: {
+        onChange(event) {
+            console.log(event.target.value);
+        }
     }
-  },
-  methods: {
-    onChange(event) {
-      console.log(event.target.value);
-    }
-  }
 };
 </script>
 
-<style>
-</style>
+<style></style>
