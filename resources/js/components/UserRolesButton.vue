@@ -97,7 +97,12 @@
                                 >
                             </select>
 
-                            <button class="btn btn-danger">Remove Role</button>
+                            <button
+                                @click="postRemoveRole"
+                                class="btn btn-danger"
+                            >
+                                Remove Role
+                            </button>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -159,6 +164,21 @@ export default {
                 data: {
                     user_id: this.selecteduser.id,
                     role: this.pickedRole
+                }
+            }).then(response => {
+                // Close modal
+                $(`#${this.uniqueModal}`).modal("hide");
+            });
+        },
+        postRemoveRole() {
+            axios({
+                method: "post",
+                url: "admin/removerole",
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector("#token").content
+                },
+                data: {
+                    user_id: this.selecteduser.id
                 }
             }).then(response => {
                 // Close modal
