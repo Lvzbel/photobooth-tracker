@@ -178,6 +178,7 @@ export default {
             }).then(response => {
                 // Close modal
                 $(`#${this.uniqueModal}`).modal("hide");
+                this.$emit("refresh");
             });
         },
         postRemoveRole() {
@@ -193,6 +194,7 @@ export default {
             }).then(response => {
                 // Close modal
                 $(`#${this.uniqueModal}`).modal("hide");
+                this.$emit("refresh");
             });
         }
     }

@@ -16,6 +16,7 @@
                     <userrolesbutton
                         :role="loginrole"
                         :selecteduser="user"
+                        @refresh="getUsers"
                     ></userrolesbutton>
                 </div>
             </li>
