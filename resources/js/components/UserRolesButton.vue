@@ -5,7 +5,7 @@
             type="button"
             class="btn btn-primary"
             data-toggle="modal"
-            data-target="#userrolemodal"
+            :data-target="'#' + uniqueModal"
         >
             Edit Roles
         </button>
@@ -13,16 +13,16 @@
         <!-- Modal -->
         <div
             class="modal fade"
-            id="userrolemodal"
+            :id="uniqueModal"
             tabindex="-1"
             role="dialog"
-            aria-labelledby="userrolemodalLabel"
+            :aria-labelledby="uniqueModal + 'Label'"
             aria-hidden="true"
         >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="userrolemodalLabel">
+                        <h5 class="modal-title" :id="uniqueModal + 'Label'">
                             Edit User Roles
                         </h5>
                         <button
@@ -108,7 +108,11 @@
                         >
                             Close
                         </button>
-                        <button type="button" class="btn btn-primary">
+                        <button
+                            @click="postGrantRole()"
+                            type="button"
+                            class="btn btn-primary"
+                        >
                             Save changes
                         </button>
                     </div>
@@ -120,13 +124,16 @@
 
 <script>
 export default {
-    props: ["role", "userid"],
+    props: ["role", "selecteduser"],
     data: function() {
         return {
             pickedRole: "default"
         };
     },
     computed: {
+        uniqueModal() {
+            return `userrolemodal-${this.selecteduser.id}`;
+        },
         getGrantableRoles() {
             switch (this.role) {
                 case "admin":
@@ -140,7 +147,24 @@ export default {
     },
     methods: {
         onChange(event) {
-            console.log(event.target.value);
+            this.pickedRole = event.target.value;
+        },
+        postGrantRole: function() {
+            console.log(this.selecteduser);
+            $(`#${this.uniqueModal}`).modal("hide");
+            // axios({
+            //     method: "post",
+            //     url: "admin/grantrole",
+            //     headers: {
+            //         "X-CSRF-TOKEN": document.querySelector("#token").content
+            //     },
+            //     data: {
+            //         user_id: user_test,
+            //         role: this.pickedRole
+            //     }
+            // }).then(response =>
+            //     console.log("Sent and response is ", response.data)
+            // );
         }
     }
 };
