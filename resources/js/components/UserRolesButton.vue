@@ -36,7 +36,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="roles__container">
-                            <h1>Role: {{ role }}</h1>
+                            <h3>
+                                User:
+                                <span class="text-danger">{{
+                                    selecteduser.name
+                                }}</span>
+                            </h3>
                             <div class="roles__role">
                                 <h5 class="text-primary">Admin</h5>
                                 <ul class="roles__list">
