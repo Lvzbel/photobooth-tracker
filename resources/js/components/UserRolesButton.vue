@@ -105,6 +105,7 @@
                             <button
                                 @click="postRemoveRole"
                                 class="btn btn-danger"
+                                :disabled="isDisableRemove"
                             >
                                 Remove Role
                             </button>
@@ -143,6 +144,10 @@ export default {
     computed: {
         uniqueModal() {
             return `userrolemodal-${this.selecteduser.id}`;
+        },
+        isDisableRemove() {
+            // Will disable remove button if user has no roles to be remove
+            return !this.selecteduser.role;
         },
         getGrantableRoles() {
             switch (this.role) {
