@@ -150,21 +150,20 @@ export default {
             this.pickedRole = event.target.value;
         },
         postGrantRole: function() {
-            console.log(this.selecteduser);
-            $(`#${this.uniqueModal}`).modal("hide");
-            // axios({
-            //     method: "post",
-            //     url: "admin/grantrole",
-            //     headers: {
-            //         "X-CSRF-TOKEN": document.querySelector("#token").content
-            //     },
-            //     data: {
-            //         user_id: user_test,
-            //         role: this.pickedRole
-            //     }
-            // }).then(response =>
-            //     console.log("Sent and response is ", response.data)
-            // );
+            axios({
+                method: "post",
+                url: "admin/grantrole",
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector("#token").content
+                },
+                data: {
+                    user_id: this.selecteduser.id,
+                    role: this.pickedRole
+                }
+            }).then(response => {
+                // Close modal
+                $(`#${this.uniqueModal}`).modal("hide");
+            });
         }
     }
 };
