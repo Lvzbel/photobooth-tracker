@@ -15,7 +15,7 @@
                 <div>
                     <userrolesbutton
                         :role="loginrole"
-                        :userid="user.id"
+                        :selecteduser="user"
                     ></userrolesbutton>
                 </div>
             </li>

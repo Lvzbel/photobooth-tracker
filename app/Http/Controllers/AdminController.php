@@ -96,9 +96,11 @@ class AdminController extends Controller
     public function grantrole(Request $request)
     {
         $validatedData = $request->validate([
-            'user_id' => ['required', 'string'],
-            'role' => ['required', 'string']
+            'user_id' => ['required'],
+            'role' => ['required']
         ]);
+
+        // return $validatedData;
 
         return User::grantRole($validatedData['user_id'], $validatedData['role']);
     }
