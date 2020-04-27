@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
+      {{-- Token  --}}
+      <meta name="csrf-token" id="token" content="{{ csrf_token() }}">
     <h1 class="mb-4">Admin Panel: {{$role}}</h1>
 
       {{-- Vue Component AdminPanel --}}
