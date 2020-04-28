@@ -123,6 +123,19 @@ export default {
       this.pickedRole = event.target.value;
     },
     postGrantRole: function() {
+      // If the grantable role is equal to previous role exit and close modal
+      if (
+        this.selecteduser.role === this.pickedRole ||
+        this.pickedRole === "default"
+      ) {
+        $(`#${this.uniqueModal}`).modal("hide");
+        return;
+      }
+
+      // If user already has a role, remove previous role before granting a new one
+      if (this.selecteduser.role) {
+        this.postRemoveRole();
+      }
       axios({
         method: "post",
         url: "admin/grantrole",
