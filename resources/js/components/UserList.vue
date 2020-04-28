@@ -15,7 +15,6 @@
         <div>
           <userrolesbutton
             v-if="calcSecLevel(loginrole, user.role)"
-            :role="loginrole"
             :selecteduser="user"
             @refresh="getUsers"
           ></userrolesbutton>
