@@ -41,29 +41,29 @@
                         <!-- Authentication Links -->
                         @can('viewadmin', App\User::class)
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin">Admin Panel</a>
+                            <a class="nav-link text-primary" href="/admin">Admin Panel</a>
                         </li>
                         @endcan
                         <li class="nav-item">
-                            <a class="nav-link" href="/vehicles">Vehicles</a>
+                            <a class="nav-link text-primary" href="/vehicles">Vehicles</a>
                         </li>
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a>
+                                <a class="nav-link text-primary" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}"><i class="far fa-plus-square"></i> {{ __('Register') }}</a>
+                                    <a class="nav-link text-primary" href="{{ route('register') }}"><i class="far fa-plus-square"></i> {{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link text-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
