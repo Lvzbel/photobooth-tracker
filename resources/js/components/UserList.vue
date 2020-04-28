@@ -1,7 +1,11 @@
 <template>
   <div>
     <ul class="list-group">
-      <li v-for="user in users" class="list-group-item" :key="user.id">
+      <li
+        v-for="user in users"
+        class="list-group-item d-flex justify-content-between"
+        :key="user.id"
+      >
         <div>
           User Name: {{ user.name }}
           <span
