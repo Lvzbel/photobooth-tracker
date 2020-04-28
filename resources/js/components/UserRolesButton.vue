@@ -96,7 +96,7 @@ export default {
   props: ["role", "selecteduser"],
   data: function() {
     return {
-      pickedRole: "default"
+      pickedRole: this.selecteduser.role || "default"
     };
   },
   computed: {
