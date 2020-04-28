@@ -14,7 +14,7 @@
 
         <div>
           <userrolesbutton
-            v-if="calculateSecurityLevel(loginrole) >= calculateSecurityLevel(user.role)"
+            v-if="calcSecLevel(loginrole, user.role)"
             :role="loginrole"
             :selecteduser="user"
             @refresh="getUsers"
@@ -42,15 +42,20 @@ export default {
     getUsers() {
       axios.get("/admin/all").then(response => (this.users = response.data));
     },
-    calculateSecurityLevel(role) {
-      switch (role) {
-        case "admin":
-          return 2;
-        case "manager":
-          return 1;
-        default:
-          return 0;
-      }
+    calcSecLevel(currentUser, listUser) {
+      // Determines securty level based on admin or manager
+      const calcLevel = role => {
+        switch (role) {
+          case "admin":
+            return 2;
+          case "manager":
+            return 1;
+          default:
+            return 0;
+        }
+      };
+      // Determines if the current user's level is highter than the one listed
+      return calcLevel(currentUser) >= calcLevel(listUser);
     }
   },
   mounted: function() {
