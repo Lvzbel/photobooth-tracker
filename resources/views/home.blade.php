@@ -38,7 +38,7 @@
 
     @auth
         <div class="row justify-content-center mt-4">
-            <a class="btn btn-lg btn-primary shadow" href="/vehicles/create">Add Vehicle</a>
+            <a class="btn btn-lg btn-primary shadow" href="/vehicles/create">Add Vehicle <i class="fas fa-camera"></i></a>
         </div>
     @else
         <div class="row justify-content-center mt-4">
