@@ -93,7 +93,7 @@
 
 <script>
 export default {
-  props: ["selecteduser"],
+  props: ["role", "selecteduser"],
   data: function() {
     return {
       pickedRole: "default"
