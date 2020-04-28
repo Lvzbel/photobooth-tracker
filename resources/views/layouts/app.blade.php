@@ -39,6 +39,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @can('viewadmin', App\User::class)
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Admin Panel</a>
+                        </li>
+                        @endcan
                         <li class="nav-item">
                             <a class="nav-link" href="/vehicles">Vehicles</a>
                         </li>

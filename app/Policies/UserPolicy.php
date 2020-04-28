@@ -20,6 +20,11 @@ class UserPolicy
         return $user->hasRole(['admin', 'manager']);
     }
 
+    public function viewAdmin(User $user)
+    {
+        return $user->hasRole(['admin', 'manager', 'photographer']);
+    }
+
     /**
      * Determine whether the user can view the model.
      *
