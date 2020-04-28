@@ -20,10 +20,10 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" :id="uniqueModal + 'Label'">
-              User:
-              <span class="text-danger">{{ selecteduser.name }}</span>
-            </h5>
+            <h4 class="modal-title" :id="uniqueModal + 'Label'">
+              Edit User:
+              <span class="text-primary">{{ selecteduser.name }}</span>
+            </h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -31,8 +31,8 @@
           <div class="modal-body">
             <div class="roles__container">
               <div class="roles__role">
-                <h5 class="text-primary">Admin</h5>
-                <ul class="roles__list">
+                <h5>Admin</h5>
+                <ul class="roles__list text-muted">
                   <li class="roles__item">Can add/edit/remove Clients</li>
                   <li class="roles__item">
                     Can grant the following roles: Admin,
@@ -44,8 +44,8 @@
               </div>
 
               <div class="roles__role">
-                <h5 class="text-primary">Manager</h5>
-                <ul class="roles__list">
+                <h5>Manager</h5>
+                <ul class="roles__list text-muted">
                   <li class="roles__item">
                     Can grant the following roles: Manager
                     or Photographer
@@ -55,30 +55,37 @@
               </div>
 
               <div class="roles__role">
-                <h5 class="text-primary">Photographer</h5>
-                <ul class="roles__list">
+                <h5>Photographer</h5>
+                <ul class="roles__list text-muted">
                   <li class="roles__item">Create new Vehicles</li>
                   <li class="roles__item">Edit their own Vehicles</li>
                 </ul>
               </div>
             </div>
 
-            <div class="roles__form">
-              <select v-model="pickedRole" @change="onChange($event)">
+            <div class="roles__form form-group mt-4">
+              <label for="role-form" class="text-primary">Select Role</label>
+              <select
+                id="role-form"
+                v-model="pickedRole"
+                @change="onChange($event)"
+                class="form-control"
+              >
                 <option value="default" selected>Please select a role to grant</option>
                 <option v-for="role in getGrantableRoles" :key="role">{{ role }}</option>
               </select>
-
-              <button
-                @click="postRemoveRole"
-                class="btn btn-danger"
-                :disabled="isDisableRemove"
-              >Remove Role</button>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button @click="postGrantRole()" type="button" class="btn btn-primary">Save changes</button>
+          <div class="modal-footer d-flex justify-content-between">
+            <button
+              @click="postRemoveRole"
+              class="btn btn-danger"
+              :disabled="isDisableRemove"
+            >Remove Role</button>
+            <div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button @click="postGrantRole()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
