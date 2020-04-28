@@ -20,21 +20,16 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" :id="uniqueModal + 'Label'">Edit User Roles</h5>
+            <h5 class="modal-title" :id="uniqueModal + 'Label'">
+              User:
+              <span class="text-danger">{{ selecteduser.name }}</span>
+            </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="roles__container">
-              <h3>
-                User:
-                <span class="text-danger">
-                  {{
-                  selecteduser.name
-                  }}
-                </span>
-              </h3>
               <div class="roles__role">
                 <h5 class="text-primary">Admin</h5>
                 <ul class="roles__list">
