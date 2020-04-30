@@ -1,6 +1,6 @@
 <template>
   <div class="row my-4 d-flex justify-content-center">
-    <div class="col col-lg-6">
+    <div class="col-12 col-lg-6">
       <h3>Number of Orders Today</h3>
 
       <ordercounter v-if="ordersLoaded && clientsLoaded" :orders="orders" :clients="clients"></ordercounter>
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="col col-lg-6 d-flex flex-column justify-content-between">
+    <div class="col-12 col-lg-6 d-flex flex-column justify-content-between">
       <h3>Current Clients</h3>
 
       <div v-if="clientsLoaded">
