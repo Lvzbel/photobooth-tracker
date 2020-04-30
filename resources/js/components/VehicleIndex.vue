@@ -11,25 +11,18 @@
     </div>
 
     <div class="row d-flex justify-content-center">
-      <ul class="p-0 list-group col-11 col-md-5">
-        <VehicleItem
-          class="list-group-item"
-          v-for="vehicle in filteredVehicles"
-          v-bind:key="vehicle.id"
-          :vehicle="vehicle"
-        ></VehicleItem>
-      </ul>
+      <vehiclegroup :vehicles="filteredVehicles"></vehiclegroup>
     </div>
   </div>
 </template>
 
 <script>
 import VCalendar from "v-calendar";
-import VehicleItem from "./VehicleItem";
+import VehicleGroup from "./VehicleGroup";
 
 export default {
   components: {
-    VehicleItem,
+    VehicleGroup,
     VCalendar
   },
   data: function() {
