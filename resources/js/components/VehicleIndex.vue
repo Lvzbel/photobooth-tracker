@@ -11,7 +11,7 @@
     </div>
 
     <div class="row d-flex justify-content-center">
-      <vehiclegroup :vehicles="filteredVehicles"></vehiclegroup>
+      <vehiclegroup :rage="range" :vehicles="filteredVehicles"></vehiclegroup>
     </div>
   </div>
 </template>
