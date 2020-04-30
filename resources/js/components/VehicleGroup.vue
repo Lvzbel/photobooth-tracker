@@ -51,6 +51,7 @@ export default {
       return moment(date).format("YYYY-MM-DD");
     },
     addDays(date, dayNumber) {
+      // Adds a number of days to the date
       return moment(date)
         .add(dayNumber, "days")
         .toDate();
