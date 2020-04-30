@@ -25,17 +25,40 @@ export default {
   },
   methods: {
     getDaysList() {
-      console.log("Start Date: ", this.range.start);
-      console.log("Next Day: ", this.addOneDay(this.range.start));
-      console.log("End Date: ", this.range.end);
+      const daysList = [];
+      const start = this.range.start;
+      const end = this.range.end;
+      let stopLoop = 0;
+      let counter = 1;
+      // Add starting date to daysList
+      daysList.push(start);
+
+      while (stopLoop < 1) {
+        // Add number of days
+        const day = this.addDays(start, counter);
+        // Add new date to array and add to counter
+        daysList.push(day);
+        counter++;
+        // Check if day is equal to end date and end loop
+        console.log();
+        if (moment(end).format() === moment(day).format()) {
+          stopLoop++;
+        }
+      }
+      console.log(daysList);
     },
     formatTime(date) {
       return moment(date).format("YYYY-MM-DD");
     },
-    addOneDay(date) {
+    addDays(date, dayNumber) {
       return moment(date)
-        .add(1, "days")
+        .add(dayNumber, "days")
         .toDate();
+    }
+  },
+  watch: {
+    range() {
+      this.getDaysList();
     }
   }
 };
