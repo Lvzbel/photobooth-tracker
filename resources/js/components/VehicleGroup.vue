@@ -113,7 +113,6 @@ export default {
   watch: {
     range() {
       this.getDaysList();
-      console.log("Watch: ", this.vehicles);
     },
     vehicles() {
       this.getDaysList();
