@@ -21,11 +21,21 @@ export default {
     VehicleItem
   },
   mounted: function() {
-    console.log(typeof this.range.start);
+    this.getDaysList();
   },
   methods: {
     getDaysList() {
-      console.log(rangle.start);
+      console.log("Start Date: ", this.range.start);
+      console.log("Next Day: ", this.addOneDay(this.range.start));
+      console.log("End Date: ", this.range.end);
+    },
+    formatTime(date) {
+      return moment(date).format("YYYY-MM-DD");
+    },
+    addOneDay(date) {
+      return moment(date)
+        .add(1, "days")
+        .toDate();
     }
   }
 };
