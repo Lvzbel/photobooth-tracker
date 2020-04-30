@@ -10,7 +10,7 @@
         <admintoppanel role="{{$role}}"></admintoppanel>
         @can('viewany', App\User::class)
       <div class="row my-4 d-flex justify-content-center">
-        <div class="col">
+        <div class="col-12">
           <h3>Roles List</h3>
           {{-- Vue Componet UserList --}}
           <userlist loginrole="{{$role}}"></userlist>
