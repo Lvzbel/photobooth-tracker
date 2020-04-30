@@ -31,8 +31,11 @@ export default {
       range: {
         start: moment()
           .subtract(4, "days")
+          .startOf("day")
           .toDate(),
-        end: moment().toDate()
+        end: moment()
+          .startOf("day")
+          .toDate()
       }
     };
   },
