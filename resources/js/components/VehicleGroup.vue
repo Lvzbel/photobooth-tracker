@@ -1,8 +1,12 @@
 <template>
-  <div class="VehicleGroup">
-    <div v-for="(day, index) in sortedVehicles" :key="index" class="VehicleGroup__group">
+  <div class="VehicleGroup row">
+    <div
+      v-for="(day, index) in sortedVehicles"
+      :key="index"
+      class="VehicleGroup__group col-md-6 col-lg-4"
+    >
       <h3>{{formatedStartDate(day[0].created_at)}}</h3>
-      <ul class="group__list">
+      <ul class="group__list p-0">
         <VehicleItem
           class="list-group-item"
           v-for="vehicle in day"

@@ -10,9 +10,7 @@
       />
     </div>
 
-    <div class="row d-flex justify-content-center">
-      <vehiclegroup :range="range" :vehicles="filteredVehicles"></vehiclegroup>
-    </div>
+    <vehiclegroup :range="range" :vehicles="filteredVehicles"></vehiclegroup>
   </div>
 </template>
 
