@@ -12,11 +12,13 @@
       </div>
     </div>
 
-    <div class="col col-lg-6">
+    <div class="col col-lg-6 d-flex flex-column justify-content-between">
       <h3>Current Clients</h3>
 
-      <clientslist v-if="clientsLoaded" :clients="clients"></clientslist>
-
+      <div v-if="clientsLoaded">
+        <a v-if="role === 'admin'" href="/clients" class="btn btn-primary mx-auto">Edit Clients</a>
+        <clientslist :clients="clients"></clientslist>
+      </div>
       <div v-else class="spinner d-flex justify-content-center align-items-center">
         <div class="spinner-border text-primary" role="status">
           <span class="sr-only">Loading...</span>
@@ -31,6 +33,7 @@ import OrderCounter from "./OrderCounter";
 import ClientList from "./ClientsList";
 
 export default {
+  props: ["role"],
   components: {
     OrderCounter,
     ClientList

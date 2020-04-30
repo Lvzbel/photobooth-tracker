@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -7,7 +7,7 @@
     <h1 class="mb-4">Admin Panel: {{$role}}</h1>
 
       {{-- Vue Component AdminPanel --}}
-        <admintoppanel></admintoppanel>
+        <admintoppanel role="{{$role}}"></admintoppanel>
         @can('viewany', App\User::class)
       <div class="row my-4 d-flex justify-content-center">
         <div class="col">
