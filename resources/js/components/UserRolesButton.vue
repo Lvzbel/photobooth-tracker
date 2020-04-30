@@ -6,7 +6,7 @@
       class="btn btn-primary"
       data-toggle="modal"
       :data-target="'#' + uniqueModal"
-    >Edit Roles</button>
+    >Edit Role</button>
 
     <!-- Modal -->
     <div
