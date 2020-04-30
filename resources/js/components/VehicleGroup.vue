@@ -17,6 +17,11 @@ import VehicleItem from "./VehicleItem";
 
 export default {
   props: ["vehicles", "range"],
+  data: function() {
+    return {
+      dates: []
+    };
+  },
   components: {
     VehicleItem
   },
@@ -45,7 +50,7 @@ export default {
           stopLoop++;
         }
       }
-      console.log(daysList);
+      this.dates = daysList;
     },
     formatTime(date) {
       return moment(date).format("YYYY-MM-DD");
