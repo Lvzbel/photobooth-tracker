@@ -1,7 +1,7 @@
 <template>
   <div class="VehicleGroup">
     <div v-for="(day, index) in sortedVehicles" :key="index" class="VehicleGroup__group">
-      <h3>Date: {{day[0].created_at}}</h3>
+      <h3>{{formatedStartDate(day[0].created_at)}}</h3>
       <ul class="group__list">
         <VehicleItem
           class="list-group-item"
@@ -108,6 +108,9 @@ export default {
       //   }
       //   console.log("Calling daily");
       // });
+    },
+    formatedStartDate(date) {
+      return moment(date).format("dddd, MMM Do");
     }
   },
   watch: {
