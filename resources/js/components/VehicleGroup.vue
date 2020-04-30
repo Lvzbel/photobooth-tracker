@@ -21,7 +21,7 @@ export default {
     return {
       dates: [],
       groups: [],
-      test: this.vehicles
+      sortedVehicles: []
     };
   },
   components: {
@@ -67,7 +67,7 @@ export default {
         .toDate();
     },
     makeGroups(testVehicles) {
-      const vehicleGroups = testVehicles;
+      const sortedVehicles = [];
 
       // grab all vehicles for the day
 
@@ -77,23 +77,21 @@ export default {
         // get end of day
         const endOfDay = this.addDays(day, 1);
         // Find all vehicles between day and endOfDay
-        console.log("MakeGroups: ", day, " ", endOfDay);
-        // this.findDailyCars(day, endOfDay);
 
         this.vehicles.forEach(vehicle => {
-          const testVehicles = [];
           const start = moment(day).format();
           const end = moment(endOfDay).format();
           const vehicleDate = moment(vehicle.created_at).format();
           if (vehicleDate > start && vehicleDate < end) {
-            testVehicles.push(vehicle);
-          }
-          if (testVehicles.length > 0) {
-            vehiclesDay.push(testVehicles);
+            vehiclesDay.push(vehicle);
           }
         });
-        console.log(vehiclesDay);
+        if (vehiclesDay.length > 0) {
+          sortedVehicles.push(vehiclesDay);
+        }
       });
+
+      this.sortedVehicles = sortedVehicles;
     },
     findDailyCars(starDate, endDate) {
       // console.log(startDate, endDate);
