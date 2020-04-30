@@ -16,15 +16,17 @@
 import VehicleItem from "./VehicleItem";
 
 export default {
-  props: ["vehicles", "rage"],
+  props: ["vehicles", "range"],
   components: {
     VehicleItem
   },
   mounted: function() {
-    console.log(this.rage);
+    console.log(typeof this.range.start);
   },
   methods: {
-    sortByDays() {}
+    getDaysList() {
+      console.log(rangle.start);
+    }
   }
 };
 </script>
