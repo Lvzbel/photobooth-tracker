@@ -19,7 +19,9 @@ export default {
   props: ["vehicles", "range"],
   data: function() {
     return {
-      dates: []
+      dates: [],
+      groups: [],
+      test: this.vehicles
     };
   },
   components: {
@@ -27,6 +29,10 @@ export default {
   },
   mounted: function() {
     this.getDaysList();
+    console.log("Mounted!");
+  },
+  created: function() {
+    this.makeGroups(this.vehicles);
   },
   methods: {
     getDaysList() {
@@ -45,7 +51,6 @@ export default {
         daysList.push(day);
         counter++;
         // Check if day is equal to end date and end loop
-        console.log();
         if (moment(end).format() === moment(day).format()) {
           stopLoop++;
         }
@@ -60,11 +65,59 @@ export default {
       return moment(date)
         .add(dayNumber, "days")
         .toDate();
+    },
+    makeGroups(testVehicles) {
+      const vehicleGroups = testVehicles;
+
+      // grab all vehicles for the day
+
+      this.dates.forEach(day => {
+        // Group of vehicles for the day
+        const vehiclesDay = [];
+        // get end of day
+        const endOfDay = this.addDays(day, 1);
+        // Find all vehicles between day and endOfDay
+        console.log("MakeGroups: ", day, " ", endOfDay);
+        // this.findDailyCars(day, endOfDay);
+
+        this.vehicles.forEach(vehicle => {
+          const testVehicles = [];
+          const start = moment(day).format();
+          const end = moment(endOfDay).format();
+          const vehicleDate = moment(vehicle.created_at).format();
+          if (vehicleDate > start && vehicleDate < end) {
+            testVehicles.push(vehicle);
+          }
+          if (testVehicles.length > 0) {
+            vehiclesDay.push(testVehicles);
+          }
+        });
+        console.log(vehiclesDay);
+      });
+    },
+    findDailyCars(starDate, endDate) {
+      // console.log(startDate, endDate);
+      // this.vehicles.forEach(vehicle => {
+      //   const testVehicles = [];
+      //   const start = moment(startDate).format();
+      //   const end = moment(endDate).format();
+      //   const vehicleDate = moment(vehicle.created_at).format();
+      //   if (start > vehicleDate && vehicleDate < end) {
+      //     testVehicles.push(vehicle);
+      //     console.log("comparison working");
+      //   }
+      //   console.log("Calling daily");
+      // });
     }
   },
   watch: {
     range() {
       this.getDaysList();
+      console.log("Watch: ", this.vehicles);
+    },
+    vehicles() {
+      this.getDaysList();
+      this.makeGroups();
     }
   }
 };
