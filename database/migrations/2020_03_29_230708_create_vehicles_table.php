@@ -18,8 +18,6 @@ class CreateVehiclesTable extends Migration
             $table->char('work_order', 7);
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('client_id')->nullable();
-            $table->boolean('reshoot')->nullable();
-            $table->tinyInteger('reshoot_count')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
