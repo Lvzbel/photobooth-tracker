@@ -20,11 +20,12 @@ class CreateVehiclesTable extends Migration
             $table->unsignedBigInteger('client_id')->nullable();
             $table->timestamps();
 
+            // Remove Vehicle if user owner is delete it
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
-
+            // Remove Vehicle if client owner is delete it
             $table->foreign('client_id')
             ->references('id')
             ->on('users')
