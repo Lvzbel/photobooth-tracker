@@ -5,15 +5,17 @@
       :key="index"
       class="VehicleGroup__group col-md-6 col-lg-4"
     >
-      <h3>{{formatedStartDate(day[0].created_at)}}</h3>
-      <ul class="group__list p-0">
-        <VehicleItem
-          class="list-group-item"
-          v-for="vehicle in day"
-          v-bind:key="vehicle.id"
-          :vehicle="vehicle"
-        ></VehicleItem>
-      </ul>
+      <div class="VehicleGroup__box rounded">
+        <h3>{{formatedStartDate(day[0].created_at)}}</h3>
+        <ul class="group__list p-0 shadow-small">
+          <VehicleItem
+            class="list-group-item"
+            v-for="vehicle in day"
+            v-bind:key="vehicle.id"
+            :vehicle="vehicle"
+          ></VehicleItem>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -130,4 +132,12 @@ export default {
 </script>
 
 <style>
+.VehicleGroup__group {
+  margin: 1rem 0;
+}
+.VehicleGroup__box {
+  background-color: rgba(52, 144, 220, 0.2);
+
+  padding: 1rem;
+}
 </style>
