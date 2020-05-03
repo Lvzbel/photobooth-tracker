@@ -1,5 +1,5 @@
 <template>
-  <div class="VehicleGroup row">
+  <div class="VehicleGroup d-flex align-items-stretch row">
     <div
       v-for="(day, index) in sortedVehicles"
       :key="index"
@@ -137,7 +137,7 @@ export default {
 }
 .VehicleGroup__box {
   background-color: rgba(52, 144, 220, 0.2);
-
+  height: 100%;
   padding: 1rem;
 }
 </style>
