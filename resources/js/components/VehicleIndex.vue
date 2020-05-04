@@ -74,7 +74,7 @@ export default {
       return vehicles.map(vehicle => {
         const modifiedVehicle = vehicle;
         this.clients.find(client => {
-          if (client.id === vehicle.id) {
+          if (client.id === vehicle.client_id) {
             const imageUrl = client.image;
             modifiedVehicle["logo"] = imageUrl;
           }
