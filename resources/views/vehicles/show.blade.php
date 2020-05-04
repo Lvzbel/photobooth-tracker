@@ -19,7 +19,7 @@
               </tr>
               <tr>
                 <th scope="row">Client</th>
-                <td>{{ $vehicle->client->name}}</td>
+                <td><img class="client__logo client__logo--small" src="{{ $vehicle->client->image}}" alt=""> {{ $vehicle->client->name}}</td>
               </tr>
               <tr>
                 <th scope="row">Date Taken</th>
