@@ -1,22 +1,26 @@
 <template>
-  <div class="VehicleGroup d-flex align-items-stretch row">
-    <div
-      v-for="(day, index) in sortedVehicles"
-      :key="index"
-      class="VehicleGroup__group col-md-6 col-lg-4"
-    >
-      <div class="VehicleGroup__box rounded">
-        <h3>{{formatedStartDate(day[0].created_at)}}</h3>
-        <ul class="group__list p-0 shadow-small">
-          <VehicleItem
-            class="list-group-item"
-            v-for="vehicle in day"
-            v-bind:key="vehicle.id"
-            :vehicle="vehicle"
-          ></VehicleItem>
-        </ul>
+  <div>
+    <div v-if="vehiclesFound" class="VehicleGroup d-flex align-items-stretch row">
+      <div
+        v-for="(day, index) in sortedVehicles"
+        :key="index"
+        class="VehicleGroup__group col-md-6 col-lg-4"
+      >
+        <div class="VehicleGroup__box rounded">
+          <h3>{{formatedStartDate(day[0].created_at)}}</h3>
+          <ul class="group__list p-0 shadow-small">
+            <VehicleItem
+              class="list-group-item"
+              v-for="vehicle in day"
+              v-bind:key="vehicle.id"
+              :vehicle="vehicle"
+            ></VehicleItem>
+          </ul>
+        </div>
       </div>
     </div>
+
+    <div v-else class="alert alert-danger" role="alert">No vehicles found with the following dates.</div>
   </div>
 </template>
 
@@ -31,6 +35,11 @@ export default {
       groups: [],
       sortedVehicles: []
     };
+  },
+  computed: {
+    vehiclesFound() {
+      return this.vehicles.length > 0;
+    }
   },
   components: {
     VehicleItem
