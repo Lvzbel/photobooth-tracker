@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
-// use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ClientController extends Controller
 {
@@ -23,10 +23,25 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => ['required', 'string']
+            'name' => ['required', 'string'],
+            'image' => ''
         ]);
 
-        Client::create($validatedData);
+        if(request('image')) {
+            // store image in the storage/public/clients and return the path
+            $imagePath = request('image')->store('clients', 'public');
+
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(500, 500);
+            
+            $image->save();
+
+            $imageArray = ['image' => "/storage/" .$imagePath];
+        }
+
+        Client::create(array_merge(
+            $validatedData,
+            $imageArray ?? []
+        ));
 
         return redirect(route('welcome'));
     }
