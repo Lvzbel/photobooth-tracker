@@ -16,7 +16,18 @@
       <h3>Current Clients</h3>
 
       <div v-if="clientsLoaded">
-        <a v-if="role === 'admin'" href="/clients" class="btn btn-primary mx-auto">Edit Clients</a>
+        <div class="d-flex justify-content-between">
+          <a
+            v-if="role === 'admin'"
+            href="/clients"
+            class="btn btn-primary shadow mx-auto"
+          >Edit Clients</a>
+          <a
+            v-if="role === 'admin'"
+            href="/clients/create"
+            class="btn btn-primary shadow mx-auto"
+          >Add New Clients</a>
+        </div>
         <clientslist :clients="clients"></clientslist>
       </div>
       <div v-else class="spinner d-flex justify-content-center align-items-center">
