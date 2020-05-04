@@ -12,7 +12,9 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        return view('vehicles.index');
+        $clients = Client::all();
+
+        return view('vehicles.index', compact('clients'));
     }
     
     public function show(Vehicle $vehicle)
