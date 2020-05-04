@@ -43,7 +43,7 @@ class ClientController extends Controller
             $imageArray ?? []
         ));
 
-        return redirect(route('welcome'));
+        return redirect('/clients')->with('message', 'Client has been created.');;
     }
 
     public function edit(Client $client)
