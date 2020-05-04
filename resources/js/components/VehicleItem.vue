@@ -19,10 +19,6 @@ export default {
   },
 
   computed: {
-    vehicleDate() {
-      let date = moment(this.vehicle.created_at);
-      return date.format("MMM Do YYYY");
-    },
     vehicleTime() {
       let date = moment(this.vehicle.created_at);
       return date.format("h:mm a");
