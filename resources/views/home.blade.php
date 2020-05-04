@@ -2,17 +2,6 @@
 
 @section('content')
 <div class="container">
-
-    {{-- Success Alert --}}
-    @if (session('message'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> {{ session('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>  
-    @endif
-
     {{-- Today's Vehicles --}}
     <h1>Today's Vehicles</h1>
     <div class="row justify-content-center">
