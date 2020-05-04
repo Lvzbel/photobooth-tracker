@@ -1,7 +1,10 @@
 <template>
-  <li>
-    Work Order:
-    <a :href="link" v-text="vehicle.work_order"></a>
+  <li class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center">
+      <img class="client__logo client__logo--small" :src="vehicle.logo" alt />
+      <a class="order" :href="link" v-text="vehicle.work_order"></a>
+    </div>
+    <div class="time">Time: {{vehicleTime}}</div>
   </li>
 </template>
 
@@ -19,9 +22,20 @@ export default {
     vehicleDate() {
       let date = moment(this.vehicle.created_at);
       return date.format("MMM Do YYYY");
+    },
+    vehicleTime() {
+      let date = moment(this.vehicle.created_at);
+      return date.format("h:mm a");
     }
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+.order {
+  font-size: 1.1rem;
+}
+.time {
+  font-weight: bold;
+}
+</style>
