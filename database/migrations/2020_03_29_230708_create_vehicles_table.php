@@ -16,8 +16,8 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->char('work_order', 7);
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('client_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id');
             $table->timestamps();
 
             // Remove Vehicle if user owner is delete it
@@ -26,10 +26,10 @@ class CreateVehiclesTable extends Migration
             ->on('users')
             ->onDelete('cascade');
             // Remove Vehicle if client owner is delete it
-            $table->foreign('client_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
+            // $table->foreign('client_id')
+            // ->references('id')
+            // ->on('clients')
+            // ->onDelete('cascade');
         });
     }
 
