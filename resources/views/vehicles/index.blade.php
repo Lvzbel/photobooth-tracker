@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-  <vehicleindex></vehicleindex>
+  <vehicleindex :clients="{{ $clients }}"></vehicleindex>
 </div>
 @endsection
