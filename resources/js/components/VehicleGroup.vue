@@ -136,7 +136,7 @@ export default {
   margin: 1rem 0;
 }
 .VehicleGroup__box {
-  background-color: rgba(52, 144, 220, 0.2);
+  background-color: #f5f5f5;
   height: 100%;
   padding: 1rem;
 }
