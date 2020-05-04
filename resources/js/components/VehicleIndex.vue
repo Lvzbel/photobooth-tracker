@@ -19,6 +19,7 @@ import VCalendar from "v-calendar";
 import VehicleGroup from "./VehicleGroup";
 
 export default {
+  props: ["clients"],
   components: {
     VehicleGroup,
     VCalendar
@@ -62,10 +63,24 @@ export default {
         .get(
           `/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
         )
-        .then(response => (this.filteredVehicles = response.data));
+        .then(
+          response => (this.filteredVehicles = this.addLogo(response.data))
+        );
     },
     onChange() {
       this.getRequest();
+    },
+    addLogo(vehicles) {
+      return vehicles.map(vehicle => {
+        const modifiedVehicle = vehicle;
+        this.clients.find(client => {
+          if (client.id === vehicle.id) {
+            const imageUrl = client.image;
+            modifiedVehicle["logo"] = imageUrl;
+          }
+        });
+        return modifiedVehicle;
+      });
     }
   }
 };
