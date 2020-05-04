@@ -8,7 +8,7 @@
         <div class="col-md-5">
               <ul class="list-group">
                 @forelse ($work_orders as $work_order)
-                    <li class="list-group-item d-flex justify-content-between">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <img class="client__logo client__logo--small" src="{{ $work_order->client->image }}" alt="">
                             <h5 class="font-weight-bold m-0"><a href="/vehicles/{{ $work_order->id }}">{{ $work_order->work_order }}</a></h5>
