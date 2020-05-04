@@ -13,3 +13,12 @@ $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
+.client__logo {
+    display: block;
+    border-radius: 2px;
+    margin-right: 0.7rem;
+    &--small {
+        width: 2.2rem;
+    }
+}
