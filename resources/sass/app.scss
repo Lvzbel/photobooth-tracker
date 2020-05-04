@@ -15,7 +15,7 @@ $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 
 .client__logo {
-    display: block;
+    display: inline-block;
     border-radius: 2px;
     margin-right: 0.7rem;
     &--small {
