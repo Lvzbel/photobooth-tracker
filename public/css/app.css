@@ -16924,3 +16924,13 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.client__logo {
+  display: inline-block;
+  border-radius: 2px;
+  margin-right: 0.7rem;
+}
+
+.client__logo--small {
+  width: 2.2rem;
+}
+
