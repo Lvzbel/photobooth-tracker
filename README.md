@@ -59,3 +59,21 @@ Building this application was a challenge not only because it was my first full-
 My experience using Laravel was excellent, this framework thought about everything. It has very useful packages a robust but easy to use Authentication system.
 
 Having to learn the different ways Vue.js works when comparing it to how React.js works, especially when it comes to dealing with props and how Vue.js renders the child component first even after the parent component has mounted.
+
+## Screenshots
+
+#### Homepage
+
+![Homepage](https://i.imgur.com/9FFeRx4.png "Google Lighthouse Score")
+
+#### Vehicles Page
+
+![Vehicles Page](https://i.imgur.com/yOWdl9G.png "Google Lighthouse Score")
+
+#### Admin Page
+
+![Admin Page](https://i.imgur.com/Gzu7MSI.png "Google Lighthouse Score")
+
+#### Roles Modal
+
+![Roles Modal](https://i.imgur.com/xEdoXI8.png "Google Lighthouse Score")
