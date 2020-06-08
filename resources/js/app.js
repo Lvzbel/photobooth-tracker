@@ -9,6 +9,15 @@ require("./bootstrap");
 window.Vue = require("vue");
 window.moment = require("moment");
 
+// import component and stylesheet
+import AirbnbStyleDatepicker from "vue-airbnb-style-datepicker";
+import "vue-airbnb-style-datepicker/dist/vue-airbnb-style-datepicker.min.css";
+
+// see docs for available options
+const datepickerOptions = {};
+
+// make sure we can use it in our components
+Vue.use(AirbnbStyleDatepicker, datepickerOptions);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

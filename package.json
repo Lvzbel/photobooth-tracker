@@ -25,7 +25,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
+        "date-fns": "^1.29.0",
         "moment": "^2.24.0",
-        "v-calendar": "^1.0.0-beta.23"
+        "v-calendar": "^1.0.0-beta.23",
+        "vue-airbnb-style-datepicker": "^2.7.1"
     }
 }
