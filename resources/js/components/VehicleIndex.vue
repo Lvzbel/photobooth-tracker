@@ -2,13 +2,6 @@
     <div>
         <h4>List of Vehicles</h4>
         <div class="row d-flex justify-content-center my-5">
-            <v-date-picker
-                v-model="range"
-                mode="range"
-                is-inline
-                :columns="$screens({ default: 1, md: 2 })"
-                :availableDates="{ start: minDate, end: maxDate }"
-            />
             <AirbnbCalendar />
         </div>
 
