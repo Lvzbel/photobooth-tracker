@@ -11,7 +11,8 @@
             <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
-                :fullscreen-mobile="true"
+                :fullscreen-mobile="false"
+                :inline="true"
                 :date-one="dateOne"
                 :date-two="dateTwo"
                 @date-one-selected="
