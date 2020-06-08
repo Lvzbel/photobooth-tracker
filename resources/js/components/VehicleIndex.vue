@@ -7,6 +7,8 @@
         mode="range"
         is-inline
         :columns="$screens({ default: 1, md: 2 })"
+        :min-date="new Date(2020, 4, 1)"
+        :max-date="new Date()"
       />
     </div>
 
@@ -68,7 +70,10 @@ export default {
         );
     },
     onChange() {
-      this.getRequest();
+      // this.getRequest();
+      console.log(
+        `/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
+      );
     },
     addLogo(vehicles) {
       return vehicles.map(vehicle => {
