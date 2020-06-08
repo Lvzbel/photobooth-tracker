@@ -5,6 +5,7 @@
                 type="text"
                 id="datepicker-trigger"
                 placeholder="Select dates"
+                class="form-control mb-2"
                 :value="formatDates(dateOne, dateTwo)"
             />
 
@@ -34,6 +35,7 @@
 import format from "date-fns/format";
 
 export default {
+    props: ["range"],
     data() {
         return {
             dateFormat: "D MMM",
@@ -52,6 +54,12 @@ export default {
             }
             return formattedDates;
         }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            this.dateOne = this.range.start;
+            this.dateTwo = this.range.end;
+        });
     }
 };
 </script>
