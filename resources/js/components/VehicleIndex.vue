@@ -2,7 +2,7 @@
     <div>
         <h4>List of Vehicles</h4>
         <div class="row d-flex justify-content-center my-5">
-            <AirbnbCalendar />
+            <AirbnbCalendar :range="range" />
         </div>
 
         <vehiclegroup
