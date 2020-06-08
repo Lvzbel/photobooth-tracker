@@ -7,8 +7,7 @@
         mode="range"
         is-inline
         :columns="$screens({ default: 1, md: 2 })"
-        :min-date="new Date(2020, 4, 1)"
-        :max-date="new Date()"
+        :availableDates="{start: minDate, end: maxDate}"
       />
     </div>
 
@@ -49,6 +48,12 @@ export default {
       return moment(this.range.end)
         .add(1, "days")
         .format("YYYY-MM-DD");
+    },
+    minDate() {
+      return new Date(2020, 4, 1);
+    },
+    maxDate() {
+      return new Date();
     }
   },
   mounted: function() {
