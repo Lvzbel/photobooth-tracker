@@ -2,7 +2,7 @@
     <div>
         <h4>List of Vehicles</h4>
         <div class="row d-flex justify-content-center my-5">
-            <AirbnbCalendar :range="range" />
+            <AirbnbCalendar :range="range" :method="getRequest" />
         </div>
 
         <vehiclegroup
@@ -64,12 +64,11 @@ export default {
         }
     },
     methods: {
-        getRequest(
-            dateOne = this.formatedEndDate,
-            dateTwo = this.formatedStartDate
-        ) {
+        getRequest() {
             axios
-                .get(`/vehicles/date?end=${dateOne}&start=${dateTwo}`)
+                .get(
+                    `/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
+                )
                 .then(
                     response =>
                         (this.filteredVehicles = this.addLogo(response.data))
