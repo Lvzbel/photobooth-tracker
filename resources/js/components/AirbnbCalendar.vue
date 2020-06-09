@@ -14,6 +14,7 @@
                 :mode="'range'"
                 :fullscreen-mobile="false"
                 :inline="true"
+                @apply="onApply"
                 :date-one="dateOne"
                 :date-two="dateTwo"
                 @date-one-selected="
@@ -35,7 +36,7 @@
 import format from "date-fns/format";
 
 export default {
-    props: ["range"],
+    props: ["range", "method"],
     data() {
         return {
             dateFormat: "D MMM",
@@ -53,6 +54,9 @@ export default {
                 formattedDates += " - " + format(dateTwo, this.dateFormat);
             }
             return formattedDates;
+        },
+        onApply() {
+            this.method(this.dateOne, this.dateTwo);
         }
     },
     mounted() {
