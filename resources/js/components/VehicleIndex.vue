@@ -64,21 +64,19 @@ export default {
         }
     },
     methods: {
-        getRequest() {
+        getRequest(
+            dateOne = this.formatedEndDate,
+            dateTwo = this.formatedStartDate
+        ) {
             axios
-                .get(
-                    `/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
-                )
+                .get(`/vehicles/date?end=${dateOne}&start=${dateTwo}`)
                 .then(
                     response =>
                         (this.filteredVehicles = this.addLogo(response.data))
                 );
         },
         onChange() {
-            // this.getRequest();
-            console.log(
-                `/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
-            );
+            this.getRequest();
         },
         addLogo(vehicles) {
             return vehicles.map(vehicle => {
