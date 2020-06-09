@@ -2,7 +2,7 @@
     <div>
         <h4>List of Vehicles</h4>
         <div class="row d-flex justify-content-center my-5">
-            <AirbnbCalendar :range="range" :method="getRequest" />
+            <AirbnbCalendar :range="range" :method="calendarAction" />
         </div>
 
         <vehiclegroup
@@ -88,6 +88,11 @@ export default {
                 });
                 return modifiedVehicle;
             });
+        },
+        calendarAction(dateOne, dateTwo) {
+            this.range.start = dateOne;
+            this.range.end = dateTwo;
+            this.onChange();
         }
     }
 };
