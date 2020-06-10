@@ -67,6 +67,17 @@
                     </form>
                 </div>
             </div>
+            <div class="col-md-6 mx-auto">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        Demo Login Info:
+                    </div>
+                    <div class="card-body">
+                        <p>Email: admin@test.com</p>
+                        <p>Password: password</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

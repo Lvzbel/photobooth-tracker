@@ -35,5 +35,6 @@
             <a class="btn btn-lg btn-primary shadow" href="/login">Login to Add Vehicle</a>
         </div>
     @endauth
+    <div class="row justify-content-center mt-4"><p class="text-info">Demo login info can be found at the login page!</p></div>
 </div>
 @endsection
