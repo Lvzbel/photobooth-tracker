@@ -37,6 +37,12 @@
               </select>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-8 offset-3">
+              <scanner></scanner>
+            </div>
+          </div>
   
           <div class="row">
             <div class="col-md-8 offset-3">

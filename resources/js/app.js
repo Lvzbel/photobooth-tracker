@@ -38,6 +38,7 @@ Vue.component(
     require("./components/UserRolesButton.vue").default
 );
 Vue.component("vehiclegroup", require("./components/VehicleGroup.vue").default);
+Vue.component("scanner", require("./components/Scanner.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
