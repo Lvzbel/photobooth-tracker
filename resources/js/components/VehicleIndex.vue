@@ -11,6 +11,14 @@
             />
         </div>
 
+        <div
+            v-if="vehiclesLoading"
+            class="spinner d-flex justify-content-center align-items-center"
+        >
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
         <vehiclegroup
             :range="range"
             :vehicles="filteredVehicles"
@@ -31,6 +39,7 @@ export default {
     data: function() {
         return {
             filteredVehicles: [],
+            vehiclesLoading: true,
             range: {
                 start: moment()
                     .subtract(4, "days")
@@ -69,14 +78,15 @@ export default {
     },
     methods: {
         getRequest() {
+            this.vehiclesLoading = true;
             axios
                 .get(
                     `/vehicles/date?end=${this.formatedEndDate}&start=${this.formatedStartDate}`
                 )
-                .then(
-                    response =>
-                        (this.filteredVehicles = this.addLogo(response.data))
-                );
+                .then(response => {
+                    this.filteredVehicles = this.addLogo(response.data);
+                    this.vehiclesLoading = false;
+                });
         },
         onChange() {
             this.getRequest();
