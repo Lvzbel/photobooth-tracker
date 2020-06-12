@@ -9,6 +9,9 @@ require("./bootstrap");
 window.Vue = require("vue");
 window.moment = require("moment");
 
+import VueBarcodeScanner from "vue-barcode-scanner";
+Vue.use(VueBarcodeScanner);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
