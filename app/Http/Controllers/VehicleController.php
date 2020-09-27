@@ -45,8 +45,20 @@ class VehicleController extends Controller
         $userId = ['user_id' => Auth::id()];
 
         $jointData = array_merge($validatedData, $userId);
+
+        $client = Client::findorfail($validatedData["client_id"]);
+
+        // die(var_dump(strtolower($client->name)));
+        // die(var_dump($validatedData));
         
-        Vehicle::create($jointData);
+        $vehicle = Vehicle::create($jointData);
+
+        // die(var_dump($vehicle));
+
+        if(strtolower($client->name) === "vroom") 
+        {
+            return redirect(route('disclosure', [$vehicle]));
+        }
 
         return redirect(route('home'))->with('message', 'Work order added.');
     }
@@ -103,5 +115,10 @@ class VehicleController extends Controller
     {
         return Vehicle::todaysVehicles();
 
+    }
+
+    public function disclosure(Vehicle $vehicle)
+    {
+        return view('vehicles.disclosure', compact('vehicle'));
     }
 }
