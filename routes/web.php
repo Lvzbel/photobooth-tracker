@@ -28,7 +28,6 @@ Route::post('/vehicles', 'VehicleController@store');
 Route::get('/vehicles/{vehicle}/edit', 'VehicleController@edit')->middleware('auth');
 Route::patch('/vehicles/{vehicle}', 'VehicleController@update')->middleware('auth');
 Route::delete('/vehicles/{vehicle}', 'VehicleController@destroy');
-Route::get('/vehicles/disclosure/{vehicle}', 'VehicleController@disclosure')->name('disclosure');
 
 // Client Routes
 Route::group(['middleware' => ['role:admin']], function() {
