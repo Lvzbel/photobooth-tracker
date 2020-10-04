@@ -4,11 +4,11 @@
     <div>
       <div v-if="!selectedArea">Select an Area</div>
       <div v-if="selectedArea">Selected Area: {{ selectedArea }}</div>
-      <ul v-if="!selectedArea">
-        <li v-for="area in areas" :key="area">
-          {{ area }} <button @click="setLocation(area)">Select</button>
-        </li>
-      </ul>
+      <DisclosureList
+        v-if="!selectedArea"
+        :list="areas"
+        @on-select="setLocation"
+      />
     </div>
     <div v-if="selectedArea">Locations</div>
     <div v-if="selectedLocation">Damage Type</div>
@@ -17,7 +17,11 @@
 
 <script>
 import { areas, damageType, locations } from "../../data/disclosureData.js";
+import DisclosureList from "./DisclosureList";
 export default {
+  components: {
+    DisclosureList,
+  },
   data: () => {
     return {
       step: 1,
@@ -33,11 +37,10 @@ export default {
   },
   methods: {
     setLocation(location) {
-      console.log("Hevo ", location);
-      this.selectedArea = location;
+      this.selectedLocation = location;
     },
     setArea(area) {
-      this.area = area;
+      this.selectedArea = area;
     },
     onSubmit() {
       console.log("submit");
