@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     onSelect(selection) {
-      this.$emit("on-select", "hevo");
+      this.$emit("on-select", selection);
     },
   },
 };
