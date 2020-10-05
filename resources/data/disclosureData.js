@@ -7,7 +7,7 @@ export const areas = [
     "interior"
 ];
 
-export const damageType = ["chip", "scratch", "scuff", "dent", "other"];
+export const damageType = ["chip", "scratch", "scuff", "dent"];
 
 export const locations = {
     front: ["hood", "front bumper", "headlights"],
