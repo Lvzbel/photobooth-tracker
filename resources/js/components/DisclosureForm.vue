@@ -1,17 +1,32 @@
 <template>
   <div>
-    <h2>Please add anywhere from 4 to 6 disclosures</h2>
+    <h2>{{ step }} of 6 disclosures</h2>
+    <p class="lead">Min of 4 and a max of 6 disclosures allowed</p>
     <!-- Area -->
     <div>
-      <div v-if="!selectedArea">Select an Area</div>
-      <div v-if="selectedArea">Selected Area: {{ selectedArea }}</div>
+      <div v-if="!selectedArea" class="font-weight-bold select-label">
+        Select an Area
+      </div>
+      <div
+        v-if="selectedArea"
+        class="font-weight-bold select-label underline-label"
+      >
+        Selected Area:
+        <span class="text-primary selected-option">{{ selectedArea }}</span>
+      </div>
       <DisclosureList v-if="!selectedArea" :list="areas" @on-select="setArea" />
     </div>
     <!-- Location -->
     <div v-if="selectedArea">
-      <div v-if="!selectedLocation">Select Location</div>
-      <div v-if="selectedLocation">
-        Selected Location: {{ selectedLocation }}
+      <div v-if="!selectedLocation" class="font-weight-bold select-label">
+        Select Location
+      </div>
+      <div
+        v-if="selectedLocation"
+        class="font-weight-bold select-label underline-label"
+      >
+        Selected Location:
+        <span class="text-primary selected-option">{{ selectedLocation }}</span>
       </div>
       <DisclosureList
         v-if="!selectedLocation"
@@ -21,8 +36,9 @@
     </div>
     <!-- Damage Type -->
     <div v-if="selectedLocation">
-      <div v-if="!selectedDamage">Select Location</div>
-      <div v-if="selectedDamage">Selected Location: {{ selectedDamage }}</div>
+      <div v-if="!selectedDamage" class="font-weight-bold select-label">
+        Damage Type:
+      </div>
       <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
     </div>
     <div>
@@ -119,4 +135,14 @@ export default {
 </script>
 
 <style>
+.selected-option {
+  text-transform: capitalize;
+}
+.select-label {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.underline-label {
+  border-bottom: 1px solid #ccc;
+}
 </style>
