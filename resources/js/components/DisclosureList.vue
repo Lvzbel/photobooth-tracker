@@ -1,8 +1,5 @@
 <template>
   <ul>
-    <!-- <li v-for="item in list" :key="item">
-      {{ item }} <button @click="onSelect(item)">Select</button>
-    </li> -->
     <li v-for="item in list" :key="item">
       <input
         type="radio"
@@ -12,6 +9,15 @@
         v-model="selection"
       />
       <label :for="item">{{ item }}</label>
+    </li>
+    <li v-if="other">
+      <input
+        type="text"
+        id="other"
+        v-model="selection"
+        placeholder="Describe Damage"
+      />
+      <label for="other">Other</label>
     </li>
   </ul>
 </template>
@@ -25,7 +31,6 @@ export default {
   data: () => {
     return {
       selection: "",
-      selections: [],
     };
   },
   methods: {
