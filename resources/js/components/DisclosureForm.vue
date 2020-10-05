@@ -25,6 +25,11 @@
       <div v-if="selectedDamage">Selected Location: {{ selectedDamage }}</div>
       <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
     </div>
+    <div>
+      <button v-if="selectedDamage" @click="onNext" class="btn btn-primary">
+        Next
+      </button>
+    </div>
   </div>
 </template>
 
@@ -58,8 +63,18 @@ export default {
     setDamage(damage) {
       this.selectedDamage = damage;
     },
+    onNext() {
+      this.disclosures.push(this.computedDisclosure);
+      this.clearAll();
+      this.step++;
+    },
     onSubmit() {
       console.log("submit");
+    },
+    clearAll() {
+      this.selectedArea = "";
+      this.selectedLocation = "";
+      this.selectedDamage = "";
     },
   },
   computed: {
@@ -79,6 +94,13 @@ export default {
         case "interior":
           return "interior";
       }
+    },
+    computedDisclosure() {
+      return {
+        area: this.selectedArea,
+        location: this.selectedLocation,
+        damage: this.selectedDamage,
+      };
     },
   },
 };
