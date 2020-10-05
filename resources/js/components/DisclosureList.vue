@@ -1,23 +1,25 @@
 <template>
   <ul>
-    <li v-for="item in list" :key="item">
+    <li v-for="item in list" :key="item" class="form-check">
       <input
         type="radio"
         :id="item"
         :name="item"
         :value="item"
         v-model="selection"
+        class="form-check-input"
       />
-      <label :for="item">{{ item }}</label>
+      <label :for="item" class="form-check-label">{{ item }}</label>
     </li>
-    <li v-if="other">
+    <li v-if="other" class="form-group">
+      <label for="other">Other</label>
       <input
         type="text"
         id="other"
         v-model="selection"
         placeholder="Describe Damage"
+        class="form-control"
       />
-      <label for="other">Other</label>
     </li>
   </ul>
 </template>
@@ -47,4 +49,10 @@ export default {
 </script>
 
 <style>
+.form-check-label {
+  text-transform: capitalize;
+}
+.form-group {
+  list-style: none;
+}
 </style>
