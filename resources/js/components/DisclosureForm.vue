@@ -36,9 +36,7 @@
     </div>
     <!-- Damage Type -->
     <div v-if="selectedLocation">
-      <div v-if="!selectedDamage" class="font-weight-bold select-label">
-        Damage Type:
-      </div>
+      <div class="font-weight-bold select-label">Damage Type:</div>
       <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
     </div>
     <div class="d-flex justify-content-between">
