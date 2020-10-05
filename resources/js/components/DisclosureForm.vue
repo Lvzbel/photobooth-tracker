@@ -41,11 +41,14 @@
       </div>
       <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
     </div>
-    <div>
+    <div class="d-flex justify-content-between">
+      <button @click="clearAll" class="btn btn-danger">Reset</button>
       <button v-if="showNext" @click="onNext" class="btn btn-primary">
         Next
       </button>
-      <button v-if="showSubmit" @click="onSubmit" class="btn btn-primary">
+    </div>
+    <div class="d-flex justify-content-center">
+      <button v-if="showSubmit" @click="onSubmit" class="btn btn-success">
         Submit
       </button>
     </div>
