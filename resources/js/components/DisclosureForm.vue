@@ -91,7 +91,7 @@ export default {
       this.step++;
     },
     onSubmit() {
-      console.log("submit");
+      console.log(JSON.parse(JSON.stringify(this.disclosures)));
     },
     addDisclosure() {
       this.disclosures.push(this.computedDisclosure);
