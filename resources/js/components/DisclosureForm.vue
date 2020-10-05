@@ -29,6 +29,9 @@
       <button v-if="showNext" @click="onNext" class="btn btn-primary">
         Next
       </button>
+      <button v-if="showSubmit" @click="onSubmit" class="btn btn-primary">
+        Submit
+      </button>
     </div>
   </div>
 </template>
@@ -107,6 +110,9 @@ export default {
     },
     showNext() {
       return this.selectedDamage && this.step < 6;
+    },
+    showSubmit() {
+      return this.selectedDamage && this.step >= 4 && this.step <= 6;
     },
   },
 };
