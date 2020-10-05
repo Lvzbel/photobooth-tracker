@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <h1>Disclosures: {{ $vehicle->work_order}}</h1>
+    <h1 class="h2">Work Order: {{ $vehicle->work_order}}</h1>
     <disclosureform></disclosureform>
   </div>
 @endsection

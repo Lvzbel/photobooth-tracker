@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ step }} of 6 disclosures</h2>
+    <h2 class="h3">{{ step }} of 6 disclosures</h2>
     <p class="lead">Min of 4 and a max of 6 disclosures allowed</p>
     <!-- Area -->
     <div>
