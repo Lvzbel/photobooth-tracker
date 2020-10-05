@@ -26,7 +26,7 @@
       <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
     </div>
     <div>
-      <button v-if="selectedDamage" @click="onNext" class="btn btn-primary">
+      <button v-if="showNext" @click="onNext" class="btn btn-primary">
         Next
       </button>
     </div>
@@ -64,12 +64,15 @@ export default {
       this.selectedDamage = damage;
     },
     onNext() {
-      this.disclosures.push(this.computedDisclosure);
+      this.addDisclosure();
       this.clearAll();
       this.step++;
     },
     onSubmit() {
       console.log("submit");
+    },
+    addDisclosure() {
+      this.disclosures.push(this.computedDisclosure);
     },
     clearAll() {
       this.selectedArea = "";
@@ -101,6 +104,9 @@ export default {
         location: this.selectedLocation,
         damage: this.selectedDamage,
       };
+    },
+    showNext() {
+      return this.selectedDamage && this.step < 6;
     },
   },
 };
