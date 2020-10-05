@@ -19,7 +19,12 @@
         @on-select="setLocation"
       />
     </div>
-    <div v-if="selectedLocation">Damage Type</div>
+    <!-- Damage Type -->
+    <div v-if="selectedLocation">
+      <div v-if="!selectedDamage">Select Location</div>
+      <div v-if="selectedDamage">Selected Location: {{ selectedDamage }}</div>
+      <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
+    </div>
   </div>
 </template>
 
@@ -49,6 +54,9 @@ export default {
     },
     setArea(area) {
       this.selectedArea = area;
+    },
+    setDamage(damage) {
+      this.selectedDamage = damage;
     },
     onSubmit() {
       console.log("submit");
