@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="list">
     <li v-for="item in list" :key="item" class="form-check">
       <input
         type="radio"
@@ -7,7 +7,7 @@
         :name="item"
         :value="item"
         v-model="selection"
-        class="form-check-input"
+        class="check-input"
       />
       <label :for="item" class="form-check-label">{{ item }}</label>
     </li>
@@ -48,11 +48,38 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .form-check-label {
   text-transform: capitalize;
+  border: 1px solid #ccc;
+  padding: 0.75rem 0 0.75rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+.form-check-label:hover,
+.check-input:checked + .form-check-label {
+  background-color: rgba(52, 144, 220, 0.3);
 }
 .form-group {
   list-style: none;
+}
+.list {
+  padding-left: 0;
+}
+.form-check {
+  padding-left: 0;
+}
+.check-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
 }
 </style>
