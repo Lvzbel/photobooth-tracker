@@ -134,7 +134,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .selected-option {
   text-transform: capitalize;
 }
