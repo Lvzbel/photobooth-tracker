@@ -8,6 +8,10 @@ class Vehicle extends Model
 {
     protected $guarded = [];
 
+    protected $casts = [
+        "disclosures" => 'array'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
