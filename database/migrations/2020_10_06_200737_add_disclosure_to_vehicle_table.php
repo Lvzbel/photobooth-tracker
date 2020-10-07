@@ -14,7 +14,7 @@ class AddDisclosureToVehicleTable extends Migration
     public function up()
     {
         Schema::table('vehicles', function (Blueprint $table) {
-            $table->json('disclosures')->nullable();
+            $table->text('disclosures')->nullable();
         });
     }
 
