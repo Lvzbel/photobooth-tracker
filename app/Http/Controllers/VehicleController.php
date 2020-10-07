@@ -20,8 +20,10 @@ class VehicleController extends Controller
     public function show(Vehicle $vehicle)
     {
         $reshoots = Vehicle::reshoots($vehicle->work_order);
+
+        $disclosures = $vehicle->disclosures;
         
-        return view('vehicles.show', compact('vehicle', 'reshoots'));
+        return view('vehicles.show', compact('vehicle', 'reshoots', 'disclosures'));
     }
     
     public function create()
@@ -120,5 +122,21 @@ class VehicleController extends Controller
     public function disclosure(Vehicle $vehicle)
     {
         return view('vehicles.disclosure', compact('vehicle'));
+    }
+
+    public function disclosures(Request $request)
+    {
+        $validatedData = $request->validate([
+            'id' => ['required', 'string'],
+            'disclosures' => ['required', 'array']
+        ]);
+
+        $vehicle = Vehicle::findorfail($validatedData['id']);
+
+        $vehicle['disclosures'] = $validatedData['disclosures'];
+
+        $vehicle->save();
+        
+        return $vehicle;
     }
 }
