@@ -41,6 +41,12 @@
 
     <div class="row flex justify-content-center mt-5">
       <div class="col-md-11 col-xl-9 col">
+        <x-vehicles.disclosure-list :disclosures='$disclosures'></x-vehicles.reshoot-list>
+      </div>
+    </div>
+
+    <div class="row flex justify-content-center mt-5">
+      <div class="col-md-11 col-xl-9 col">
         <x-vehicles.reshoot-list :vehicles='$reshoots' :current="$vehicle->id"></x-vehicles.reshoot-list>
       </div>
     </div>
