@@ -60,6 +60,9 @@ export default {
   components: {
     DisclosureList,
   },
+  props: {
+    id: { type: String, required: true },
+  },
   data: () => {
     return {
       step: 1,
@@ -89,7 +92,22 @@ export default {
       this.step++;
     },
     onSubmit() {
-      console.log(JSON.parse(JSON.stringify(this.disclosures)));
+      this.addDisclosure();
+
+      const data = {
+        id: this.id,
+        disclosures: JSON.parse(JSON.stringify(this.disclosures)),
+      };
+      axios
+        .post("/vehicles/disclosure/submit", data)
+        .then((response) => {
+          window.location.replace("/");
+        })
+        .catch((error) => {
+          if (error.response.status === 422) {
+            this.errors = error.response.data.errors || {};
+          }
+        });
     },
     addDisclosure() {
       this.disclosures.push(this.computedDisclosure);
