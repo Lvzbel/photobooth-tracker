@@ -37,7 +37,9 @@ export default {
   },
   methods: {
     onSelect(value) {
-      this.$emit("on-select", value);
+      setTimeout(() => {
+        this.$emit("on-select", value);
+      }, 100);
     },
   },
   watch: {
