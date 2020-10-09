@@ -92,7 +92,9 @@ export default {
       this.step++;
     },
     onSubmit() {
-      this.addDisclosure();
+      if (this.selectedDamage) {
+        this.addDisclosure();
+      }
 
       const data = {
         id: this.id,
@@ -147,7 +149,7 @@ export default {
       return this.selectedDamage && this.step < 6;
     },
     showSubmit() {
-      return this.selectedDamage && this.step >= 4 && this.step <= 6;
+      return this.step >= 4 && this.step <= 7;
     },
   },
 };
