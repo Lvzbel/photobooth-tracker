@@ -9,12 +9,23 @@
       </div>
       <div
         v-if="selectedArea"
-        class="font-weight-bold select-label underline-label"
+        class="font-weight-bold select-label underline-label d-flex justify-content-between align-items-center"
       >
-        Selected Area:
-        <span class="text-primary selected-option">{{ selectedArea }}</span>
+        <p>
+          Selected Area:
+          <span class="text-primary selected-option">{{ selectedArea }}</span>
+        </p>
+        <button
+          class="btn btn-secondary btn-sm"
+          data-toggle="collapse"
+          data-target="#area"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
       </div>
-      <DisclosureList v-if="!selectedArea" :list="areas" @on-select="setArea" />
+      <div class="collapse" :class="{ show: !selectedArea }" id="area">
+        <DisclosureList :list="areas" @on-select="setArea" />
+      </div>
     </div>
     <!-- Location -->
     <div v-if="selectedArea">
@@ -23,16 +34,29 @@
       </div>
       <div
         v-if="selectedLocation"
-        class="font-weight-bold select-label underline-label"
+        class="font-weight-bold select-label underline-label d-flex justify-content-between align-items-center"
       >
-        Selected Location:
-        <span class="text-primary selected-option">{{ selectedLocation }}</span>
+        <p>
+          Selected Location:
+          <span class="text-primary selected-option">{{
+            selectedLocation
+          }}</span>
+        </p>
+        <button
+          class="btn btn-secondary btn-sm"
+          data-toggle="collapse"
+          data-target="#location"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
       </div>
-      <DisclosureList
-        v-if="!selectedLocation"
-        :list="locations[computedLocation]"
-        @on-select="setLocation"
-      />
+
+      <div class="collapse" :class="{ show: !selectedLocation }" id="location">
+        <DisclosureList
+          :list="locations[computedLocation]"
+          @on-select="setLocation"
+        />
+      </div>
     </div>
     <!-- Damage Type -->
     <div v-if="selectedLocation">
