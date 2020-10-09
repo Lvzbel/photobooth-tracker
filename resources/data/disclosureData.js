@@ -36,7 +36,15 @@ export const locations = {
         "rear door",
         "quarter panel"
     ],
-    roof: ["windshield", "roof", "windows"],
+    roof: [
+        "windshield",
+        "roof",
+        "left front window",
+        "left rear window",
+        "right front window",
+        "right rear window",
+        "rear window"
+    ],
     interior: [
         "driver seat",
         "front passenger seat",
