@@ -1,4 +1,9 @@
-<h3>Disclosure List</h3>
+<div class="d-flex justify-content-between align-items-center">
+  <h3>Disclosure List</h3>
+
+  <a class="btn btn-info btn-sm" href="{{ url('vehicles/disclosure/'.$vehicle->id) }}">Add/Replace Disclosures</a>
+</div>
+
 {{-- It will only display if the count is more than 1, if is one it means that only the current vehicle is avaible --}}
 @unless (!$disclosures)
   <table class="table pt-4">
