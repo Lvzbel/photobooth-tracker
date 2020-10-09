@@ -22,6 +22,7 @@ export const locations = {
     driver: [
         "fender",
         "front wheel",
+        "rear wheel",
         "mirror",
         "front door",
         "rear door",
@@ -31,6 +32,7 @@ export const locations = {
     passenger: [
         "fender",
         "front wheel",
+        "rear wheel",
         "mirror",
         "front door",
         "rear door",
@@ -47,6 +49,7 @@ export const locations = {
     ],
     interior: [
         "driver seat",
+        "steering wheel",
         "front passenger seat",
         "rear passenger seats",
         "third row seats",
