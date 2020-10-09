@@ -41,7 +41,7 @@
 
     <div class="row flex justify-content-center mt-5">
       <div class="col-md-11 col-xl-9 col">
-        <x-vehicles.disclosure-list :disclosures='$disclosures'></x-vehicles.reshoot-list>
+        <x-vehicles.disclosure-list :disclosures='$disclosures' :vehicle="$vehicle"></x-vehicles.reshoot-list>
       </div>
     </div>
 
