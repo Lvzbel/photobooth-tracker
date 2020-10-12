@@ -24,7 +24,11 @@
         </button>
       </div>
       <div class="collapse" :class="{ show: !selectedArea }" id="area">
-        <DisclosureList :list="areas" @on-select="setArea" />
+        <DisclosureList
+          :list="areas"
+          @on-select="setArea"
+          :select="selectedArea"
+        />
       </div>
     </div>
     <!-- Location -->
@@ -55,13 +59,19 @@
         <DisclosureList
           :list="locations[computedLocation]"
           @on-select="setLocation"
+          :select="selectedLocation"
         />
       </div>
     </div>
     <!-- Damage Type -->
     <div v-if="selectedLocation">
       <div class="font-weight-bold select-label">Damage Type:</div>
-      <DisclosureList :other="true" :list="damageType" @on-select="setDamage" />
+      <DisclosureList
+        :other="true"
+        :list="damageType"
+        @on-select="setDamage"
+        :select="selectedDamage"
+      />
     </div>
     <div class="d-flex justify-content-between">
       <button @click="clearAll" class="btn btn-danger">Reset</button>
@@ -173,7 +183,10 @@ export default {
       return this.selectedDamage && this.step < 6;
     },
     showSubmit() {
-      return this.step >= 4 && this.step <= 7;
+      return (
+        (this.step >= 4 && this.selectedDamage) ||
+        (this.step >= 5 && this.step <= 7)
+      );
     },
   },
 };

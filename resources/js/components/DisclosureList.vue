@@ -28,11 +28,12 @@
 export default {
   props: {
     list: { type: Array, required: true },
+    select: { type: String, required: true },
     other: { type: Boolean, default: false },
   },
-  data: () => {
+  data: function () {
     return {
-      selection: "",
+      selection: this.select,
     };
   },
   methods: {
@@ -45,6 +46,9 @@ export default {
   watch: {
     selection: function (value, oldValue) {
       this.onSelect(value);
+    },
+    select: function () {
+      this.selection = this.select;
     },
   },
 };
